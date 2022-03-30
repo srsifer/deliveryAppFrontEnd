@@ -21,7 +21,6 @@ export default function OrderDetails() {
       }
     };
     apiCall();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

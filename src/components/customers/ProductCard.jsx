@@ -28,7 +28,6 @@ export default function ProductCard(product) {
       }));
       dispatch(updateTotalPrice());
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
   const addProduct = () => {
