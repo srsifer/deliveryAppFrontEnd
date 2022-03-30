@@ -36,8 +36,6 @@
         "web-vitals": "1.1.2"
     },
     "devDependencies": {
-        "eslint": "^7.11.0",
-        "eslint-config-trybe-frontend": "1.2.1",
         "stylelint": "13.13.1",
         "stylelint-config-standard": "22.0.0",
         "stylelint-order": "4.1.0"
