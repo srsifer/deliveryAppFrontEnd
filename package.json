@@ -2,6 +2,10 @@
     "name": "delivery-app-back-end",
     "version": "0.1.0",
     "description": "Front-end do projeto App de Delivery",
+    "engines": {
+        "node": "16.14.2",
+        "npm": "8.5.0"
+    },
     "private": true,
     "scripts": {
         "start": "react-scripts start",
