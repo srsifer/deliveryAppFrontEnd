@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { loginValidation } from '../utils/inputValidations';
 import { apiLogin } from '../services/apiCalls';
 import {
+  InputsDiv,
   LoguinDiv,
   Inputs,
   ButonsSend,
@@ -56,48 +57,48 @@ export default function Login() {
   };
 
   return (
-    <LoguinDiv>
-
-      { connectionOn && <Redirect to={ setRedirectPath(connectionOn.role) } /> }
-
-      <p
-        hidden={ hiddenOn }
-        data-testid="common_login__element-invalid-email"
-      >
-        invalid credential
-      </p>
-      <div>
-        <Inputs
-          name="email"
-          type="text"
-          onChange={ validatePassword }
-          placeholder="Insira seu e-mail"
-          data-testid="common_login__input-email"
-        />
-        <Inputs
-          name="password"
-          type="password"
-          onChange={ validatePassword }
-          placeholder="Insira sua senha"
-          data-testid="common_login__input-password"
-        />
-      </div>
-      <ButonsSend
-        type="submit"
-        disabled={ handleLoginValidation() }
-        onClick={ () => sendLogin() }
-        data-testid="common_login__button-login"
-      >
-        login
-      </ButonsSend>
-      <Link to="/register">
-        <ButonsRegister
-          type="submit"
-          data-testid="common_login__button-register"
-        >
-          Ainda não tenho conta
-        </ButonsRegister>
-      </Link>
-    </LoguinDiv>
+      <LoguinDiv>
+        <InputsDiv>
+          { connectionOn && <Redirect to={ setRedirectPath(connectionOn.role) } /> }
+          <p
+            hidden={ hiddenOn }
+            data-testid="common_login__element-invalid-email"
+          >
+            invalid credential
+          </p>
+          <div>
+            <Inputs
+              name="email"
+              type="text"
+              onChange={ validatePassword }
+              placeholder="Insira seu e-mail"
+              data-testid="common_login__input-email"
+            />
+            <Inputs
+              name="password"
+              type="password"
+              onChange={ validatePassword }
+              placeholder="Insira sua senha"
+              data-testid="common_login__input-password"
+            />
+          </div>
+          <ButonsSend
+            type="submit"
+            disabled={ handleLoginValidation() }
+            onClick={ () => sendLogin() }
+            data-testid="common_login__button-login"
+          >
+            login
+          </ButonsSend>
+          <Link to="/register">
+            <ButonsRegister
+              type="submit"
+              data-testid="common_login__button-register"
+            >
+              Ainda não tenho conta
+            </ButonsRegister>
+          </Link>
+        </InputsDiv>
+      </LoguinDiv>
   );
 }
