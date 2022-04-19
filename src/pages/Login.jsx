@@ -7,6 +7,8 @@ import {
   InputsDiv,
   LoguinDiv,
   Inputs,
+  LogoDoApp,
+  DivButonsLoguin,
   ButonsSend,
   ButonsRegister,
 } from '../styles/login/Loguinstyles';
@@ -59,13 +61,8 @@ export default function Login() {
   return (
       <LoguinDiv>
         <InputsDiv>
+          <LogoDoApp/>
           { connectionOn && <Redirect to={ setRedirectPath(connectionOn.role) } /> }
-          <p
-            hidden={ hiddenOn }
-            data-testid="common_login__element-invalid-email"
-          >
-            invalid credential
-          </p>
           <div>
             <Inputs
               name="email"
@@ -81,23 +78,31 @@ export default function Login() {
               placeholder="Insira sua senha"
               data-testid="common_login__input-password"
             />
-          </div>
-          <ButonsSend
-            type="submit"
-            disabled={ handleLoginValidation() }
-            onClick={ () => sendLogin() }
-            data-testid="common_login__button-login"
-          >
-            login
-          </ButonsSend>
-          <Link to="/register">
-            <ButonsRegister
-              type="submit"
-              data-testid="common_login__button-register"
+            <p
+            hidden={ hiddenOn }
+            data-testid="common_login__element-invalid-email"
             >
-              Ainda não tenho conta
-            </ButonsRegister>
-          </Link>
+              invalid credential
+            </p>
+          </div>
+          <DivButonsLoguin>
+            <ButonsSend
+              type="submit"
+              disabled={ handleLoginValidation() }
+              onClick={ () => sendLogin() }
+              data-testid="common_login__button-login"
+            >
+              login
+            </ButonsSend>
+            <Link to="/register">
+              <ButonsRegister
+                type="submit"
+                data-testid="common_login__button-register"
+              >
+                Ainda não tenho conta
+              </ButonsRegister>
+            </Link>
+          </DivButonsLoguin>
         </InputsDiv>
       </LoguinDiv>
   );
