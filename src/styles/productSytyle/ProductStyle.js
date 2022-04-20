@@ -8,15 +8,13 @@ export const StyleDivProduct = styled.div`
   align-items: center;
   border: 1px solid black;
   width: 100%;
-  background-image: url(${backgroud2});
+  background-color: #f7f7f7 !important;
   background-repeat: no-repeat;
   background-size: 350ex;
   background-position: center;
   @media (max-width: 600px){
   /* mobile screen */
-  background-image: url(${backgroud1});
-  background-size: 300ex;
-  margin-top: 15%;
+  background-color: #f7f7f7 !important;
   }
 `;
 
@@ -44,3 +42,5 @@ export const TotalButton = styled.button`
   display: inline-block;
   font-size: 30px;
 `;
+
+

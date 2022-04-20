@@ -9,7 +9,7 @@ import {
   NavBarCheckout,
 } from '../styles/navBarStyles/NavBarStyles';
 
-export default function Navbar() {
+export default function Navbar({menu}) {
   const [redirectOn, setRedirectOn] = useState(false);
   const [userName, setUserName] = useState();
   const { pathname } = useHistory().location;
@@ -18,7 +18,6 @@ export default function Navbar() {
     const { name } = JSON.parse(localStorage.getItem('user'));
     setUserName(name);
   }, []);
-
   const clearAndRedirect = () => {
     localStorage.clear();
     setRedirectOn(true);
@@ -76,7 +75,7 @@ export default function Navbar() {
   };
 
   return (
-    <NavbarDiv>
+    <NavbarDiv menu={menu}>
 
       { redirectOn ? <Redirect to="/login" /> : null }
       { renderByRole() }

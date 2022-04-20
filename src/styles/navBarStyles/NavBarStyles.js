@@ -13,36 +13,80 @@ export const NavbarDiv = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: stretch;
+
   @media (max-width: 600px){
   /* mobile screen */
   position: fixed !important;
+  display: ${(props) => props.menu === true ? 'flex' : 'none'};
+  flex-direction: column;
+  align-items: space-evenly;
+  max-width: 100%;
+  height:230px;
+  border-radius: 10px;
+  background-color: black;
+  z-index: 0;
+  left: 0;
+  margin-top: 9%;
+  animation-duration: 1;
   }
 `;
+
+export const MenuP = styled.label`
+position: fixed;
+width: 100%;
+top:0;
+color: white;
+border-radius: 0px 0px 10px 10px;
+text-align: center;
+background-color:#F61B1B;
+z-index:1;
+@media (min-width: 600px){
+display:none;
+}
+`;
+
 
 export const NavBarProducs = styled.div`
   background-color: #DFFF00;
   width: 20%;
   display: flex;
+  padding-top:15px;
   flex-direction: row;
   justify-content: space-around;
   align-items: stretch;
   @media (max-width: 600px){
   /* mobile screen */
-    height: 70px;
+    width: 100%;
+    height:70px;
+    background-color: #F61B1B !important
   }
 `;
 
 export const NavBarOrders = styled(NavBarProducs)`
   background-color: #FFBF00;
   width: 50%;
+  @media (max-width: 600px){
+  /* mobile screen */
+    width: 100%;
+    a {
+      color: black;
+    }
+    background-color: #f7f7f7 !important;
+  }
 `;
 
-export const NavBarProfile = styled(NavBarOrders)`
+export const NavBarProfile = styled(NavBarProducs)`
   background-color: #FF7F50;
   width: 20%;
+  @media (max-width: 600px){
+  /* mobile screen */
+  display: none !important;
+    width: 100%;
+    background-color: #EA0404 !important
+  }
 `;
 
-export const NavBarCheckout = styled(NavBarOrders)`
+export const NavBarCheckout = styled(NavBarProducs)`
   width: 10%;
   background-color: #DE3163;
   button {
@@ -50,5 +94,11 @@ export const NavBarCheckout = styled(NavBarOrders)`
     background-image: url(${logout});
     background-repeat: no-repeat;
     background-size: 50px;
+  }
+  @media (max-width: 600px){
+  /* mobile screen */
+    width: 100%;
+    background-color: #f7f7f7 !important;
+    border-radius: 0px 0px 10px 10px;
   }
 `;
