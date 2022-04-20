@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getProducts } from '../../services/apiCalls';
-
+import StyledList from '../../styles/productSytyle/productListStyle';
+import {StyleDivProduct} from '../../styles/productSytyle/ProductStyle'
 import ProductCard from './ProductCard';
 
 export default function ProductList() {
@@ -17,11 +18,15 @@ export default function ProductList() {
 
   return (
     <div>
-      {
-        products.map((product, index) => (
-          <ProductCard key={ index } product={ product } data-testid={ product.id } />
-        ))
-      }
+      <StyleDivProduct>
+        <StyledList>
+            {
+              products.map((product, index) => (
+                <ProductCard key={ index } product={ product } data-testid={ product.id } />
+              ))
+            }
+         </StyledList>
+      </StyleDivProduct>
     </div>
   );
 }

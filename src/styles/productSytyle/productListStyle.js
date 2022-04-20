@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledList = styled.p`
+const StyledList = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

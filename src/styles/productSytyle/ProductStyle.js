@@ -1,10 +1,15 @@
 import styled from 'styled-components';
-
+import backgroud2 from '../../images/backgroud2.jpg'
 export const StyleDivProduct = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid black;
   width: 100%;
+  background-image: url(${backgroud2});
+  background-repeat: no-repeat;
+  background-size: 350ex;
+  background-position: center;
 `;
 
 export const StyleDivTotalPrice = styled.div`
