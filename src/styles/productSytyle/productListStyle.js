@@ -11,7 +11,7 @@ const StyledList = styled.div`
   @media (max-width: 600px){
   /* mobile screen */
   width: 100%;
-  margin-top: 30px;
+  margin-top:20px !important;
   }
 `;
 
