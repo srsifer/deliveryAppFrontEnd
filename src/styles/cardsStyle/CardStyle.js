@@ -15,6 +15,15 @@ export const DivCard = styled.div`
       width: 200px;
       height: 200px;
     }
+  @media (max-width: 600px){
+  /* mobile screen */
+  width: 150px;
+  height: 200px;
+  img{
+      width: 60px;
+      height: 60px;
+    }
+  }
 `;
 
 export const Price = styled.div`

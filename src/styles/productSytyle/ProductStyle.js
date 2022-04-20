@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import backgroud2 from '../../images/backgroud2.jpg'
+import backgroud1 from '../../images/backgroudTelaLoginDeliveryApp.jpg'
+
 export const StyleDivProduct = styled.div`
   display: flex;
   flex-direction: column;
@@ -10,10 +12,16 @@ export const StyleDivProduct = styled.div`
   background-repeat: no-repeat;
   background-size: 350ex;
   background-position: center;
+  @media (max-width: 600px){
+  /* mobile screen */
+  background-image: url(${backgroud1});
+  background-size: 300ex;
+  margin-top: 15%;
+  }
 `;
 
 export const StyleDivTotalPrice = styled.div`
-  background-color: #036b52;
+  background-color: #FF7F50;
   color: white;
   position: fixed;
   bottom: 0;
@@ -28,7 +36,7 @@ export const StyleDivTotalPrice = styled.div`
 `;
 
 export const TotalButton = styled.button`
-  background-color: #036b52; /* Green */
+  background-color: #FF7F50; /* Green */
   border: none;
   color: white;
   text-align: center;

@@ -8,6 +8,11 @@ const StyledList = styled.div`
   align-items: baseline;
   justify-content: center;
   margin-top:50px;
+  @media (max-width: 600px){
+  /* mobile screen */
+  width: 100%;
+  margin-top: 30px;
+  }
 `;
 
 export default StyledList;
