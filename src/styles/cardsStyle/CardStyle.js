@@ -51,21 +51,25 @@ export const DivCardButons = styled.div`
     width: 50px;
     height: 25px;
     background-color: #f2f2f2;
-    padding: 3px;
+    padding: 4px;
     border: 1px solid #000000;
     color: #333;
-    border-radius: 5px;
+    border-radius: 2px;
     margin: 1px;
   }
+`;
 
-  button {
+export const ButtonAdd = styled.button`
     border: none;
     padding: 10px;
     text-decoration: none;
     color: white;
     cursor: pointer;
     transition: background .3s;
-    background-color: #036b52;
-    border-radius: 10px;
-  }
+    background-color: #F61B1B;
+    border-radius: 0px 10px 10px 0px ;
+`;
+
+export const ButtonRemove = styled(ButtonAdd)`
+    border-radius: 10px 0px 0px 10px ;
 `;

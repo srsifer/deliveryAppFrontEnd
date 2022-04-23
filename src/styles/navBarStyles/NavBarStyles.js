@@ -37,7 +37,7 @@ width: 100%;
 top:0;
 color: white;
 border-radius: 0px 0px 10px 10px;
-text-align: center;
+text-align: justify;
 background-color:#F61B1B;
 z-index:1;
 @media (min-width: 600px){

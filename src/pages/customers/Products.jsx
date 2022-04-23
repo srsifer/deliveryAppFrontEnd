@@ -9,6 +9,7 @@ import {
   StyleDivTotalPrice, 
   TotalButton,
 } from '../../styles/productSytyle/ProductStyle';
+import Footer from '../../components/customers/Footer';
 
 export default function Products() {
   const totalPrice = useSelector(({ productCartReducer }) => (
@@ -45,6 +46,7 @@ export default function Products() {
           </TotalButton>
         </Link>
       </StyleDivTotalPrice>
+      <Footer />
     </>
   );
 }

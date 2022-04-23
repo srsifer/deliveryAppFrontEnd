@@ -10,6 +10,8 @@ import {
   Price,
   DivCardFooter,
   DivCardButons,
+  ButtonAdd,
+  ButtonRemove,
 } from '../../styles/cardsStyle/CardStyle'
 
 export default function ProductCard(product) {
@@ -70,13 +72,13 @@ export default function ProductCard(product) {
           </p>
         </Price>
         <DivCardButons>
-          <button
+          <ButtonRemove
             type="button"
             onClick={ removeProduct }
             data-testid={ `customer_products__button-card-rm-item-${id}` }
           >
             -
-          </button>
+          </ButtonRemove>
           <input
             type="number"
             value={ count }
@@ -84,13 +86,13 @@ export default function ProductCard(product) {
             onChange={ (e) => handleInputQuantity(e.target) }
             data-testid={ `customer_products__input-card-quantity-${id}` }
           />
-          <button
+          <ButtonAdd
             type="button"
             onClick={ addProduct }
             data-testid={ `customer_products__button-card-add-item-${id}` }
           >
             +
-          </button>
+          </ButtonAdd>
         </DivCardButons>
       </DivCardFooter>
     </DivCard>
