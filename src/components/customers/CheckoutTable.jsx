@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CheckoutTableBody from './CheckoutTableBody';
+import {TableDiv} from '../../styles/tablestyles/tableSltyles'
 
 export default function CheckoutTable({ productsSold }) {
   return (
-    <table>
+    <TableDiv>
       <thead>
         <tr>
           <th>Item</th>
@@ -21,7 +22,7 @@ export default function CheckoutTable({ productsSold }) {
             <CheckoutTableBody product={ product } key={ index } index={ index } />))
         }
       </tbody>
-    </table>
+    </TableDiv>
   );
 }
 

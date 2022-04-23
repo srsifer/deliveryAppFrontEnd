@@ -3,6 +3,12 @@ import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import CheckoutTable from '../../components/customers/CheckoutTable';
 import NavBar from '../../components/Navbar';
+import {
+  DivBodyCheckout,
+  MainChekoutDiv,
+  TotalDiv,
+  AddressDiv,
+} from '../../styles/tablestyles/Checkout'
 
 import { createOrder, getSellers } from '../../services/apiCalls';
 
@@ -53,54 +59,57 @@ export default function Checkout() {
   };
 
   return (
-    <>
-
+    <DivBodyCheckout>
       { redirect ? <Redirect to={ `/customer/orders/${orderId}` } /> : null }
-
       <NavBar />
-      <h2>Finalizar pedido</h2>
-      <CheckoutTable productsSold={ productsSold } />
-      Total:
-      <div
-        data-testid="customer_checkout__element-order-total-price"
-      >
-        {totalPrice.toFixed(2).toString().replace('.', ',')}
-      </div>
-      <h2>Detalhes e Endereço para Entrega</h2>
-      <select
-        name="select-seller"
-        onChange={ (e) => handleChange(e.target) }
-        data-testid="customer_checkout__select-seller"
-      >
-        {
-          sellers.map(({ id, name }, index) => (
-            <option key={ index } value={ id }>
-              {name}
-            </option>))
-        }
-      </select>
-      <input
-        name="customer-address"
-        type="text"
-        value={ order.deliveryAddress }
-        onChange={ (e) => handleChange(e.target) }
-        data-testid="customer_checkout__input-address"
-      />
-      <input
-        name="customer-address-number"
-        type="number"
-        pattern="[0-9]*"
-        value={ order.deliveryNumber }
-        onChange={ (e) => handleChange(e.target) }
-        data-testid="customer_checkout__input-addressNumber"
-      />
-      <button
-        type="button"
-        onClick={ () => sendOrder() }
-        data-testid="customer_checkout__button-submit-order"
-      >
-        finalizar pedido
-      </button>
-    </>
+      <MainChekoutDiv>
+        <h2>Finalizar pedido</h2>
+        <CheckoutTable productsSold={ productsSold } />
+        
+          <TotalDiv
+            data-testid="customer_checkout__element-order-total-price"
+            >
+           { `Total: ${totalPrice.toFixed(2).toString().replace('.', ',')}`}
+          </TotalDiv>
+       
+        <AddressDiv>
+          <h2>Detalhes e Endereço para Entrega</h2>
+          <select
+            name="select-seller"
+            onChange={ (e) => handleChange(e.target) }
+            data-testid="customer_checkout__select-seller"
+          >
+            {
+              sellers.map(({ id, name }, index) => (
+                <option key={ index } value={ id }>
+                  {name}
+                </option>))
+            }
+          </select>
+          <input
+            name="customer-address"
+            type="text"
+            value={ order.deliveryAddress }
+            onChange={ (e) => handleChange(e.target) }
+            data-testid="customer_checkout__input-address"
+          />
+          <input
+            name="customer-address-number"
+            type="number"
+            pattern="[0-9]*"
+            value={ order.deliveryNumber }
+            onChange={ (e) => handleChange(e.target) }
+            data-testid="customer_checkout__input-addressNumber"
+            />
+          <button
+            type="button"
+            onClick={ () => sendOrder() }
+            data-testid="customer_checkout__button-submit-order"
+            >
+            finalizar pedido
+          </button>
+        </AddressDiv>
+      </MainChekoutDiv>
+    </DivBodyCheckout>
   );
 }

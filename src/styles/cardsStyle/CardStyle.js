@@ -43,6 +43,7 @@ export const DivCardFooter = styled.div`
   display: flex;
   border-radius: 10px;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   `;
 
