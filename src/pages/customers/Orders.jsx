@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import { getOrdersByUser } from '../../services/apiCalls';
 import socket from '../../utils/socketClient';
+import {
+  DivAllOrders, 
+  IdDivOrder,
+  OrderDateAndPrice,
+  OrderDiv,
+  StatusOrder,
+} from '../../styles/ordersStyles/orderStyles'
 
 export default function Orders() {
   const [orders, setOrders] = useState([]);
@@ -30,31 +37,35 @@ export default function Orders() {
   return (
     <div>
       <Navbar />
-      {
-        orders.map((order, index) => (
-          <Link
-            key={ index }
-            to={ `/customer/orders/${order.id}` }
-          >
-            <div
-              key={ index }
+      <DivAllOrders>
+        {
+          orders.map((order, index) => (
+            <Link
+              key={index}
+              to={`/customer/orders/${order.id}`}
             >
-              <p data-testid={ `customer_orders__element-order-id-${order.id}` }>
-                { order.id }
-              </p>
-              <p data-testid={ `customer_orders__element-delivery-status-${order.id}` }>
-                { order.status }
-              </p>
-              <p data-testid={ `customer_orders__element-order-date-${order.id}` }>
-                { order.saleDate }
-              </p>
-              <p data-testid={ `customer_orders__element-card-price-${order.id}` }>
-                { order.totalPrice.replace('.', ',') }
-              </p>
-            </div>
-          </Link>
-        ))
-      }
+              <OrderDiv
+                key={index}
+              >
+                <IdDivOrder data-testid={`customer_orders__element-order-id-${order.id}`}>
+                  {order.id}
+                </IdDivOrder>
+                <StatusOrder data-testid={`customer_orders__element-delivery-status-${order.id}`}>
+                  {order.status}
+                </StatusOrder>
+                <OrderDateAndPrice>
+                  <p data-testid={`customer_orders__element-order-date-${order.id}`}>
+                    {order.saleDate}
+                  </p>
+                  <p data-testid={`customer_orders__element-card-price-${order.id}`}>
+                   Total R${order.totalPrice.replace('.', ',')}
+                  </p>
+                </OrderDateAndPrice>
+              </OrderDiv>
+            </Link>
+          ))
+        }
+      </DivAllOrders>
     </div>
   );
 }

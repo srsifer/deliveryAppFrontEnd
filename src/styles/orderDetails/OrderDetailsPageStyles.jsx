@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const DetailsOrderDiv = styled.div`
     width: 60%; 
-    height: 38em;
+    height: min-content;
     margin-left: auto;
     margin-right: auto; 
     background-color: white;
