@@ -46,3 +46,12 @@ export const TdRemoveItem = styled(TdIten)`
   color: white;
   border-radius: 0px 5px 5px 0px;
 `;
+
+export const ButtonTableRemoveItem = styled.button`
+ background-color: red;
+ color: white;
+ width: 100%;
+ height: 100%;
+ border-style: none;
+ font-size: x-large;
+`;

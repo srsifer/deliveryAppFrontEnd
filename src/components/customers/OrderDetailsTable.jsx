@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import OrderDetailsTableBody from './OrderDetailsTableBody';
+import {TableDiv} from '../../styles/tablestyles/tableSltyles'
+
 
 export default function OrderDetailsTable({ products, datId }) {
   return (
-    <table>
+    <TableDiv>
       <thead>
         <tr>
           <th>Item</th>
@@ -26,7 +28,7 @@ export default function OrderDetailsTable({ products, datId }) {
           ))
         }
       </tbody>
-    </table>
+    </TableDiv>
   );
 }
 

@@ -9,6 +9,7 @@ import {
   TdUnitPrice,
   TdTotalPrice,
   TdRemoveItem,
+  ButtonTableRemoveItem,
 } from '../../styles/tablestyles/tableSltyles'
 export default function
 CheckoutTableBody({ product: { id, name, quantity, price, subtotal }, index }) {
@@ -49,13 +50,13 @@ CheckoutTableBody({ product: { id, name, quantity, price, subtotal }, index }) {
         {subtotal.toFixed(2).replace('.', ',')}
       </TdTotalPrice>
       <TdRemoveItem>
-        <button
+        <ButtonTableRemoveItem
           type="button"
           onClick={ () => removeProduct() }
           data-testid={ `customer_checkout__element-order-table-remove-${index}` }
         >
           Remover
-        </button>
+        </ButtonTableRemoveItem>
       </TdRemoveItem>
     </tr>
   );
