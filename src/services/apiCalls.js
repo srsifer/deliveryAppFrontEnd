@@ -1,8 +1,13 @@
 import axios from 'axios';
-import { serverUrl } from '../utils/dinamcsRoutes'
+import { serverUrl, serverUrlFront } from '../utils/dinamcsRoutes';
 
 
-
+const expireTokenCaseError = ({ message }) => {
+  if (message === 'Request failed with status code 401') {
+    localStorage.clear()
+    return window.location.replace(serverUrlFront)
+  }
+}
 async function apiLogin(user) {
   try {
 
@@ -42,11 +47,11 @@ const getProducts = async () => {
 
     const fetchApi = await axios.get(url, config);
     const response = await fetchApi.data;
-    
+
     return response;
   } catch (error) {
-    console.log(error.message)
-    return { error };
+    console.log(error)
+    return expireTokenCaseError(error);
   }
 };
 
