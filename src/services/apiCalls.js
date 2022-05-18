@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { serverUrl } from '../utils/dinamcsRoutes'
 
+
+
 async function apiLogin(user) {
   try {
-    const url = `https://in-tregasbackend.herokuapp.com/login`;
-    
-    console.log(serverUrl)
+
+    const url = `${serverUrl}login`;
+    console.log(url)
     const fetchApi = await axios.post(url, user);
     const response = await fetchApi.data;
 
@@ -17,7 +19,7 @@ async function apiLogin(user) {
 
 async function apiRegister(newUser) {
   try {
-    const url = `https://in-tregasbackend.herokuapp.com/register`;
+    const url = `${serverUrl}register`;
 
     const fetchApi = await axios.post(url, newUser);
     const response = await fetchApi.data;
@@ -31,7 +33,7 @@ async function apiRegister(newUser) {
 const getProducts = async () => {
   try {
     const { token } = JSON.parse(localStorage.getItem('user'));
-    const url = `https://in-tregasbackend.herokuapp.com/customer/products`;
+    const url = `${serverUrl}customer/products`;
     const config = {
       headers: {
         authorization: token,
@@ -40,9 +42,10 @@ const getProducts = async () => {
 
     const fetchApi = await axios.get(url, config);
     const response = await fetchApi.data;
-
+    
     return response;
   } catch (error) {
+    console.log(error.message)
     return { error };
   }
 };
@@ -51,7 +54,7 @@ const getOrdersByUser = async () => {
   try {
     const { id, token } = JSON.parse(localStorage.getItem('user'));
     console.log(serverUrl)
-    const url = `https://in-tregasbackend.herokuapp.com/customer/order/${id}`;
+    const url = `${serverUrl}customer/order/${id}`;
     const config = {
       headers: {
         authorization: token,
@@ -70,7 +73,7 @@ const getOrdersByUser = async () => {
 const getOrderById = async (id) => {
   try {
     const { token } = JSON.parse(localStorage.getItem('user'));
-    const url = `https://in-tregasbackend.herokuapp.com/customer/order/sales/${id}`;
+    const url = `${serverUrl}customer/order/sales/${id}`;
     const config = {
       headers: {
         authorization: token,
@@ -89,7 +92,7 @@ const getOrderById = async (id) => {
 const getSellers = async () => {
   try {
     const { token } = JSON.parse(localStorage.getItem('user'));
-    const url = `https://in-tregasbackend.herokuapp.com/register`;
+    const url = `${serverUrl}register`;
     const config = {
       headers: {
         authorization: token,
@@ -107,7 +110,7 @@ const getSellers = async () => {
 const createOrder = async (order) => {
   try {
     const { token } = JSON.parse(localStorage.getItem('user'));
-    const url = `https://in-tregasbackend.herokuapp.com/customer/order`;
+    const url = `${serverUrl}customer/order`;
     const config = {
       headers: {
         authorization: token,
@@ -126,7 +129,7 @@ const createOrder = async (order) => {
 const apiRegisterByAdmin = async (newUser) => {
   try {
     const { token } = JSON.parse(localStorage.getItem('user'));
-    const url = `https://in-tregasbackend.herokuapp.com/adminRegister`;
+    const url = `${serverUrl}adminRegister`;
     const config = {
       headers: {
         authorization: token,
@@ -144,7 +147,7 @@ const apiRegisterByAdmin = async (newUser) => {
 const getUsers = async () => {
   try {
     const { token } = JSON.parse(localStorage.getItem('user'));
-    const url = `https://in-tregasbackend.herokuapp.com/adminRegister`;
+    const url = `${serverUrl}adminRegister`;
     const config = {
       headers: {
         authorization: token,
@@ -163,7 +166,7 @@ const getUsers = async () => {
 const removeUser = async (id) => {
   try {
     const { token } = JSON.parse(localStorage.getItem('user'));
-    const url = `https://in-tregasbackend.herokuapp.com/adminRegister/${id}`;
+    const url = `${serverUrl}adminRegister/${id}`;
     const config = {
       headers: {
         authorization: token,
