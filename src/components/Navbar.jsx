@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, Redirect, Link } from 'react-router-dom';
+import { navbarConfig } from '../styles/themes/NavbarConfig';
 
 import {
   NavbarDiv,
@@ -9,10 +10,12 @@ import {
   NavBarCheckout,
 } from '../styles/navBarStyles/NavBarStyles';
 
-export default function Navbar({menu}) {
+export default function Navbar({ menu }) {
   const [redirectOn, setRedirectOn] = useState(false);
   const [userName, setUserName] = useState();
   const { pathname } = useHistory().location;
+
+
 
   useEffect(() => {
     const { name } = JSON.parse(localStorage.getItem('user'));
@@ -24,7 +27,7 @@ export default function Navbar({menu}) {
   };
 
   const renderAdmin = (
-    <NavBarOrders>
+    <NavBarOrders config={navbarConfig.saller.orders}>
       <div data-testid="customer_products__element-navbar-link-orders">
         <h3>Gerenciar Usuários</h3>
       </div>
@@ -32,7 +35,7 @@ export default function Navbar({menu}) {
   );
 
   const renderSeller = (
-    <NavBarOrders>
+    <NavBarOrders config={navbarConfig.saller.orders}>
       <Link
         to="/seller/orders"
         data-testid="customer_products__element-navbar-link-orders"
@@ -44,7 +47,7 @@ export default function Navbar({menu}) {
 
   const renderCustomer = (
     <>
-      <NavBarProducs>
+      <NavBarProducs >
         <Link
           to="/customer/products"
           data-testid="customer_products__element-navbar-link-products"
@@ -52,7 +55,7 @@ export default function Navbar({menu}) {
           <h3>Produtos</h3>
         </Link>
       </NavBarProducs>
-      <NavBarOrders>
+      <NavBarOrders config={navbarConfig.costumer.orders}>
         <Link
           to="/customer/orders"
           data-testid="customer_products__element-navbar-link-orders"
@@ -77,8 +80,8 @@ export default function Navbar({menu}) {
   return (
     <NavbarDiv menu={menu}>
 
-      { redirectOn ? <Redirect to="/login" /> : null }
-      { renderByRole() }
+      {redirectOn ? <Redirect to="/login" /> : null}
+      {renderByRole()}
 
       <NavBarProfile>
         <h3 data-testid="customer_products__element-navbar-user-full-name">
@@ -88,7 +91,7 @@ export default function Navbar({menu}) {
       <NavBarCheckout>
         <button
           type="button"
-          onClick={ () => clearAndRedirect() }
+          onClick={() => clearAndRedirect()}
           data-testid="customer_products__element-navbar-link-logout"
         >
           sair
