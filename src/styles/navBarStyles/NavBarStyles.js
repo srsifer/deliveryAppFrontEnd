@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import logout from '../../images/logout.png'
 export const NavbarDiv = styled.div`
-  color: white;
+  color: ${props => props.theme.colors.secundary};
   top: 0 !important;
   position: relative !important;
   width: 100%;
     a {
-      color: white;
+      color: ${props => props.theme.colors.secundary};
       text-decoration: none;
     }
   display: flex;
@@ -47,7 +47,7 @@ display:none;
 
 
 export const NavBarProducs = styled.div`
-  background-color: #DFFF00;
+  background-color: ${props => props.theme.colors.primary};
   width: 20%;
   display: flex;
   padding-top:15px;
@@ -63,8 +63,8 @@ export const NavBarProducs = styled.div`
 `;
 
 export const NavBarOrders = styled(NavBarProducs)`
-  background-color: #FFBF00;
-  width: 50%;
+  background-color: ${props => props.theme.colors.primary};
+  width: ${props => props.config.width};
   @media (max-width: 600px){
   /* mobile screen */
     width: 100%;
@@ -76,7 +76,7 @@ export const NavBarOrders = styled(NavBarProducs)`
 `;
 
 export const NavBarProfile = styled(NavBarProducs)`
-  background-color: #FF7F50;
+  background-color: ${props => props.theme.colors.primary};
   width: 20%;
   @media (max-width: 600px){
   /* mobile screen */
@@ -87,8 +87,8 @@ export const NavBarProfile = styled(NavBarProducs)`
 `;
 
 export const NavBarCheckout = styled(NavBarProducs)`
+  background-color: ${props => props.theme.colors.primary};
   width: 10%;
-  background-color: #DE3163;
   button {
     border: none;
     background-image: url(${logout});
