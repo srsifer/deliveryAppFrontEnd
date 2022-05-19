@@ -1,11 +1,15 @@
 import React from 'react';
 import Router from './routes/Router';
+import { ThemeProvider } from 'styled-components'
+import ligth from './styles/themes/themes'
 
 function App() {
   return (
-    <div>
-      <Router />
-    </div>
+    <ThemeProvider theme={ligth}>
+      <div>
+        <Router />
+      </div>
+    </ThemeProvider>
   );
 }
 
