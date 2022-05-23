@@ -42,12 +42,12 @@ CheckoutTableBody({ product: { id, name, quantity, price, subtotal }, index }) {
       < TdUnitPrice
         data-testid={ `customer_checkout__element-order-table-unit-price-${index}` }
       >
-        {price.replace('.', ',')}
+        R$ {price.replace('.', ',')}
       </ TdUnitPrice>
       <TdTotalPrice
         data-testid={ `customer_checkout__element-order-table-sub-total-${index}` }
       >
-        {subtotal.toFixed(2).replace('.', ',')}
+        R$ {subtotal.toFixed(2).replace('.', ',')}
       </TdTotalPrice>
       <TdRemoveItem>
         <ButtonTableRemoveItem

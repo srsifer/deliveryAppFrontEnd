@@ -11,9 +11,9 @@ export default function CheckoutTable({ productsSold }) {
           <th>Item</th>
           <th>Descrição</th>
           <th>Quantidade</th>
-          <th>valor Unitarío</th>
+          <th>Valor unitarío</th>
           <th>Sub-total</th>
-          <th>Removeritem</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
