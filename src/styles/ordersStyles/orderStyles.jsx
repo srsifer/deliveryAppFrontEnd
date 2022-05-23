@@ -14,14 +14,13 @@ export const DivAllOrders = styled.div`
     justify-items: center;
     text-decoration: none;
     a {
-      color: black;
+      color: ${props => props.theme.colors.secundary};
       text-decoration: none;
     }
 `;
 
 export const OrderDiv = styled.div`
     background-color: white;
-    border: 1px solid black;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -36,25 +35,23 @@ export const OrderDiv = styled.div`
 `;
 
 export const IdDivOrder = styled.div`
-    background-color: #d1205b;
-    width: 20%;
+    width: 10%;
     height: 80px;
     border-radius: 10px;
     display:flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-size: xx-large;
-    color: white;
+    font-size: 40px;
+    color: black;
 `;
 
-export const StatusOrder = styled(IdDivOrder)`
+export const StatusOrderStyles = styled(IdDivOrder)`
     width: 40%;
     border-radius: 15px;
-    background-color: yellow;
-    :hover{
-        background-color: green;
-    }
+    font-size: xx-large;
+    background-color: ${(props) => ` ${props.status}`};
+    
 `;
 
 export const OrderDateAndPrice = styled.div`
@@ -62,5 +59,4 @@ export const OrderDateAndPrice = styled.div`
     flex-direction:column;
     align-items: center;
     font-weight: bold;
-
 `;

@@ -8,8 +8,9 @@ import {
   IdDivOrder,
   OrderDateAndPrice,
   OrderDiv,
-  StatusOrder,
+
 } from '../../styles/ordersStyles/orderStyles'
+import StatusOrder from '../../components/customers/StatusOrder';
 
 export default function Orders() {
   const [orders, setOrders] = useState([]);
@@ -50,9 +51,7 @@ export default function Orders() {
                 <IdDivOrder data-testid={`customer_orders__element-order-id-${order.id}`}>
                   {order.id}
                 </IdDivOrder>
-                <StatusOrder data-testid={`customer_orders__element-delivery-status-${order.id}`}>
-                  {order.status}
-                </StatusOrder>
+                <StatusOrder order={order}/>
                 <OrderDateAndPrice>
                   <p data-testid={`customer_orders__element-order-date-${order.id}`}>
                     {order.saleDate}
