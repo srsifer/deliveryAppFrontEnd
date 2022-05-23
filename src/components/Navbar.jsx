@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Redirect, Link } from 'react-router-dom';
+import { changeSubtotalList } from '../redux/slice/productCart';
 import { navbarConfig } from '../styles/themes/NavbarConfig';
-
 import {
   NavbarDiv,
   NavBarProducs,
@@ -11,18 +12,28 @@ import {
 } from '../styles/navBarStyles/NavBarStyles';
 
 export default function Navbar({ menu }) {
+  const dispatch = useDispatch();
+
+  const productsSold = useSelector(({ productCartReducer }) => (
+    productCartReducer.subtotalCartList)).filter((product) => product.subtotal > 0);
+
   const [redirectOn, setRedirectOn] = useState(false);
   const [userName, setUserName] = useState();
   const { pathname } = useHistory().location;
-
 
 
   useEffect(() => {
     const { name } = JSON.parse(localStorage.getItem('user'));
     setUserName(name);
   }, []);
+
   const clearAndRedirect = () => {
     localStorage.clear();
+
+    productsSold.forEach(productSold => {
+      dispatch(changeSubtotalList({ ...productSold, subtotal: 0, quantity: 0 }))
+    });
+
     setRedirectOn(true);
   };
 
