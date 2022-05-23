@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { serverUrl, serverUrlFront } from '../utils/dinamcsRoutes';
 
-const { id: userId, token } = JSON.parse(localStorage.getItem('user'));
+const { id: userId, token } = localStorage.getItem('user') ?  JSON.parse(localStorage.getItem('user')) :  {id: null, token: null};
 
 const config = {
   headers: {
