@@ -22,7 +22,7 @@ export default function ProductList() {
         <StyledList>
             {
               products.map((product, index) => (
-                <ProductCard key={ index } product={ product } data-testid={ product.id } />
+                <ProductCard key={ index } allProducts={ products } product={ product } data-testid={ product.id } />
               ))
             }
          </StyledList>

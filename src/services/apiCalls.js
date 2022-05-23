@@ -1,6 +1,13 @@
 import axios from 'axios';
 import { serverUrl, serverUrlFront } from '../utils/dinamcsRoutes';
 
+const { id: userId, token } = JSON.parse(localStorage.getItem('user'));
+
+const config = {
+  headers: {
+    authorization: token,
+  },
+};
 
 const expireTokenCaseError = ({ message }) => {
   if (message === 'Request failed with status code 401') {
@@ -8,9 +15,9 @@ const expireTokenCaseError = ({ message }) => {
     return window.location.replace(serverUrlFront)
   }
 }
+
 async function apiLogin(user) {
   try {
-
     const url = `${serverUrl}login`;
     console.log(url)
     const fetchApi = await axios.post(url, user);
@@ -37,13 +44,7 @@ async function apiRegister(newUser) {
 
 const getProducts = async () => {
   try {
-    const { token } = JSON.parse(localStorage.getItem('user'));
     const url = `${serverUrl}customer/products`;
-    const config = {
-      headers: {
-        authorization: token,
-      },
-    };
 
     const fetchApi = await axios.get(url, config);
     const response = await fetchApi.data;
@@ -57,14 +58,7 @@ const getProducts = async () => {
 
 const getOrdersByUser = async () => {
   try {
-    const { id, token } = JSON.parse(localStorage.getItem('user'));
-    console.log(serverUrl)
-    const url = `${serverUrl}customer/order/${id}`;
-    const config = {
-      headers: {
-        authorization: token,
-      },
-    };
+    const url = `${serverUrl}customer/order/${userId}`;
 
     const fetchAPI = await axios.get(url, config);
     const response = await fetchAPI.data;
@@ -77,13 +71,7 @@ const getOrdersByUser = async () => {
 
 const getOrderById = async (id) => {
   try {
-    const { token } = JSON.parse(localStorage.getItem('user'));
     const url = `${serverUrl}customer/order/sales/${id}`;
-    const config = {
-      headers: {
-        authorization: token,
-      },
-    };
 
     const fetchAPI = await axios.get(url, config);
     const response = await fetchAPI.data;
@@ -96,13 +84,7 @@ const getOrderById = async (id) => {
 
 const getSellers = async () => {
   try {
-    const { token } = JSON.parse(localStorage.getItem('user'));
     const url = `${serverUrl}register`;
-    const config = {
-      headers: {
-        authorization: token,
-      },
-    };
     const fetchAPI = await axios.get(url, config);
     const response = await fetchAPI.data;
 
@@ -114,13 +96,7 @@ const getSellers = async () => {
 
 const createOrder = async (order) => {
   try {
-    const { token } = JSON.parse(localStorage.getItem('user'));
     const url = `${serverUrl}customer/order`;
-    const config = {
-      headers: {
-        authorization: token,
-      },
-    };
 
     const fetchAPI = await axios.post(url, order, config);
     const response = await fetchAPI.data;
@@ -133,13 +109,7 @@ const createOrder = async (order) => {
 
 const apiRegisterByAdmin = async (newUser) => {
   try {
-    const { token } = JSON.parse(localStorage.getItem('user'));
     const url = `${serverUrl}adminRegister`;
-    const config = {
-      headers: {
-        authorization: token,
-      },
-    };
 
     const fetchAPI = await axios.post(url, newUser, config);
     const response = await fetchAPI.data;
@@ -151,13 +121,7 @@ const apiRegisterByAdmin = async (newUser) => {
 
 const getUsers = async () => {
   try {
-    const { token } = JSON.parse(localStorage.getItem('user'));
     const url = `${serverUrl}adminRegister`;
-    const config = {
-      headers: {
-        authorization: token,
-      },
-    };
 
     const fetchApi = await axios.get(url, config);
     const response = await fetchApi.data;
@@ -170,13 +134,7 @@ const getUsers = async () => {
 
 const removeUser = async (id) => {
   try {
-    const { token } = JSON.parse(localStorage.getItem('user'));
     const url = `${serverUrl}adminRegister/${id}`;
-    const config = {
-      headers: {
-        authorization: token,
-      },
-    };
 
     const fetchApi = await axios.post(url, config);
     const response = await fetchApi.data;

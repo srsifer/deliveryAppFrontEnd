@@ -14,19 +14,23 @@ import {
   ButtonRemove,
 } from '../../styles/cardsStyle/CardStyle'
 
-export default function ProductCard(product) {
+export default function ProductCard(props) {
+  const { allProducts, product: { id, name, price, url_image: urlImage } } = props;
+
   const dispatch = useDispatch();
+
   const subtotalCartList = useSelector(({ productCartReducer }) => (
     productCartReducer.subtotalCartList));
+  
+  const productOnCartList = subtotalCartList.filter((product) => product.id === id)[0];
 
-  const [count, setCount] = useState(0);
-
-  const { product: { id, name, price, url_image: urlImage } } = product;
+  const [count, setCount] = useState(
+    productOnCartList ? productOnCartList.quantity !== 0 ? productOnCartList.quantity : 0 : 0);
 
   useEffect(() => {
     const multiplication = count * price;
 
-    if (subtotalCartList.length < Number('11')) {
+    if (subtotalCartList.length < allProducts.length) {
       dispatch(createSubtotalList({
         subtotal: multiplication, id, name, price, quantity: count,
       }));
@@ -100,6 +104,7 @@ export default function ProductCard(product) {
 }
 
 ProductCard.propTypes = ({
+  allProducts: PropTypes.arrayOf(PropTypes.object),
   product: PropTypes.object,
   id: PropTypes.string,
   price: PropTypes.string,
