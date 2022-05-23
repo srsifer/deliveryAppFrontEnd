@@ -11,6 +11,7 @@ export const DetailsOrderDiv = styled.div`
     margin-top:4em;
     padding-left: 1em;
     padding-right: 1em;
+    color: ${props => props.theme.colors.secundary};
     p {
         font-weight: bold;
         font-size: 18px;
@@ -23,7 +24,7 @@ export const InfoOrderDeshboard = styled.div`
     justify-items: center;
     align-items: center;
     justify-content: space-around;
-    background-color: #f3b50b;
+    background-color: ${props => props.theme.colors.primary};
     border-radius: 4em;
     margin-bottom: 2em;
     color: white;
@@ -32,8 +33,8 @@ export const InfoOrderDeshboard = styled.div`
 export const MarkSenddButton = styled.button`
     border-style: none;
     color: white;
-    background-color: green;
-    border-radius: 4em;
+    background-color: ${props => props.theme.colors.secundary};
+    border-radius: 1em;
     height: 3em;
     width: 8em;
     padding: 2px;
@@ -47,8 +48,7 @@ export const MarkSenddButton = styled.button`
         :hover {
             transform: scale(1.0);
         }
-
-        background-color: #8a8a8ab8;
-        color:#c4c4c4b8;
+        background-color: #B0C4DE;
+        color:white;
     }
 `;

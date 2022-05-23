@@ -14,31 +14,26 @@ padding: 10px;
 `;
 
 export const TdIten = styled.td`
-  background-color:#DFFF00;
+  background-color:${props => props.theme.colors.secundary};
   border-radius: 5px 0px 0px 5px;
   color:white;
   width: 5%;
 `;
 
 export const TdDescription = styled(TdIten)`
-  background-color:#FFBF00;
-  width: 40%;
+  width: 25%;
 `;
 
 export const TdQuantity = styled(TdIten)`
-  background-color:#FF7F50;
-  color: white;
   width: 10%;
 `;
 
 export const TdUnitPrice = styled(TdIten)`
-  background-color: #DE3163;
-  color: white;
+  width:10%;
 `;
 
 export const TdTotalPrice = styled(TdIten)`
-  background-color:#E9967A;
-  color: white;
+  width:10%;
 `;
 
 export const TdRemoveItem = styled(TdIten)`

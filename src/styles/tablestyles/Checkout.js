@@ -16,48 +16,67 @@ align-items: stretch;
 `;
 
 export const TotalDiv = styled.div`
-  background-color: #FF7F50; /* Green */
+  background-color: ${props => props.theme.colors.primary}; /* Green */
   border-radius:15px;
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   font-size: 45px;
-  padding: 8px; 
-  width: 40%;
+  width: max-content;
+  padding: 10px;
   height: 60px;
   margin:10px;
   margin-left: auto !important;
 `;
 
 export const AddressDiv = styled.div`
-border: 1px solid green;
-border-radius:15px;
+border: 1px solid #001427;
+border-radius: 10px;
 padding:10px;
+color: #001427;
+background-color: #eff0f0;
+
+  p {
+    font-size: 20px;
+    font-weight: 800;
+    
+  }
 
   select {
-    background-color: #FF7F50;
-    border: none;
-    font-weight: bold;
-    border-radius: 10px;
-    height:50px;
-    width: 200px;
-    text-align: center;
+   height: 46px;
+   font-size: larger;
+   font-weight: bold;
+   text-align: center;
+   border-radius: 5px;
+   background-color: #001427;
+   color: white;
+      :hover {
+        transform: scale(1.0)
+      }
   }
   input {
     height: 40px;
     width: 500px;
     border-radius: 10px;
     margin: 10px;
+    background-color: #F5DEB3;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
   }
 
   button {
-    background-color: #FF7F50;
+    background-color: #001427;
+    color: white;
     border: none;
+    height: 46px;
+    font-size: larger;
     font-weight: bold;
+    text-align: center;
     border-radius: 10px;
     height:50px;
     width: 200px;
-    text-align: center;
   }
 `;
 

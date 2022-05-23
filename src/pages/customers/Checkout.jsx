@@ -69,7 +69,7 @@ export default function Checkout() {
           <TotalDiv
             data-testid="customer_checkout__element-order-total-price"
             >
-           { `Total: ${totalPrice.toFixed(2).toString().replace('.', ',')}`}
+           { `Total: R$ ${totalPrice.toFixed(2).toString().replace('.', ',')}`}
           </TotalDiv>
        
         <AddressDiv>

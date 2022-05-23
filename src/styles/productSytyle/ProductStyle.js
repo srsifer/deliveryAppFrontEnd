@@ -6,7 +6,6 @@ export const StyleDivProduct = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid black;
   width: 100%;
   background-color: #f7f7f7 !important;
   background-repeat: no-repeat;
@@ -19,7 +18,7 @@ export const StyleDivProduct = styled.div`
 `;
 
 export const StyleDivTotalPrice = styled.div`
-  background-color: #FF7F50;
+  background-color: ${props => props.theme.colors.secundary};
   color: white;
   position: fixed;
   bottom: 0;
@@ -34,7 +33,7 @@ export const StyleDivTotalPrice = styled.div`
 `;
 
 export const TotalButton = styled.button`
-  background-color: #FF7F50; /* Green */
+  background-color: ${props => props.theme.colors.secundary}; /* Green */
   border: none;
   color: white;
   text-align: center;

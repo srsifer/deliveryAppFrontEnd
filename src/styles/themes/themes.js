@@ -2,16 +2,23 @@ export default  {
     title: 'ligth',
 
     colors: {
-        primary:"#f5f749",
-        secundary:"#f24236",
+        primary:"#f6943c",
+        secundary:"#001427",
+        fontColor: 'white',
         background: '#f5f5f5',
     },
 
     cardScheme: {
         cardBg: 'white',
-        cardFooterBg: '#eaf1ef',
+        cardFooterBg: '#f9f9fa',
         cardFontColor: '#333',
-        cardButtonColor: '#F61B1B'
+        cardButtonColor: '#001427',
+        cardInputColor: 'white'
+    },
+
+    totalPriceScheme: { 
+        colorBg: '#FF7F50',
+        fontColor: 'white'
     }
 }
 

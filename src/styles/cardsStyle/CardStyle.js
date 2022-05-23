@@ -17,6 +17,7 @@ export const DivCard = styled.div`
     }
     p {
       text-align: center;
+      color: ${props => props.theme.cardScheme.cardFontColor};
       margin: 10px;
     }
   @media (max-width: 600px){

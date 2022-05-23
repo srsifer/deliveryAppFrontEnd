@@ -6,7 +6,7 @@ export const NavbarDiv = styled.div`
   position: relative !important;
   width: 100%;
     a {
-      color: ${props => props.theme.colors.secundary};
+      color: ${props => props.theme.colors.fontColor};
       text-decoration: none;
     }
   display: flex;
@@ -63,7 +63,7 @@ export const NavBarProducs = styled.div`
 `;
 
 export const NavBarOrders = styled(NavBarProducs)`
-  background-color: ${props => props.theme.colors.primary};
+  background-color: ${props => props.theme.colors.secundary};
   width: ${props => props.config.width};
   @media (max-width: 600px){
   /* mobile screen */
@@ -78,6 +78,7 @@ export const NavBarOrders = styled(NavBarProducs)`
 export const NavBarProfile = styled(NavBarProducs)`
   background-color: ${props => props.theme.colors.primary};
   width: 20%;
+  color: ${props => props.theme.colors.fontColor};
   @media (max-width: 600px){
   /* mobile screen */
   display: none !important;
@@ -87,10 +88,11 @@ export const NavBarProfile = styled(NavBarProducs)`
 `;
 
 export const NavBarCheckout = styled(NavBarProducs)`
-  background-color: ${props => props.theme.colors.primary};
+  background-color: ${props => props.theme.colors.secundary};
   width: 10%;
   button {
     border: none;
+    color: ${props => props.theme.colors.fontColor};
     background-image: url(${logout});
     background-repeat: no-repeat;
     background-size: 50px;
