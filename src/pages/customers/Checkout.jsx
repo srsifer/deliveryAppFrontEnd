@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import CheckoutTable from '../../components/customers/CheckoutTable';
 import NavBar from '../../components/Navbar';
@@ -11,8 +11,11 @@ import {
 } from '../../styles/tablestyles/Checkout'
 
 import { createOrder, getSellers } from '../../services/apiCalls';
+import { changeSubtotalList } from '../../redux/slice/productCart';
 
 export default function Checkout() {
+  const dispatch = useDispatch();
+
   const productsSold = useSelector(({ productCartReducer }) => (
     productCartReducer.subtotalCartList)).filter((product) => product.subtotal > 0);
 
@@ -56,6 +59,9 @@ export default function Checkout() {
     const orderDispatched = await createOrder(order);
     setIdOrder(orderDispatched.id);
     setRedirect(true);
+    productsSold.forEach(productSold => {
+      dispatch(changeSubtotalList({ ...productSold, subtotal: 0, quantity: 0 }))
+    });
   };
 
   return (
@@ -65,18 +71,17 @@ export default function Checkout() {
       <MainChekoutDiv>
         <h2>Finalizar pedido</h2>
         <CheckoutTable productsSold={ productsSold } />
-        
           <TotalDiv
             data-testid="customer_checkout__element-order-total-price"
             >
            { `Total: ${totalPrice.toFixed(2).toString().replace('.', ',')}`}
           </TotalDiv>
-       
         <AddressDiv>
           <h2>Detalhes e Endereço para Entrega</h2>
           <select
             name="select-seller"
             onChange={ (e) => handleChange(e.target) }
+            disabled={productsSold.length === 0}
             data-testid="customer_checkout__select-seller"
           >
             {
@@ -91,6 +96,7 @@ export default function Checkout() {
             type="text"
             value={ order.deliveryAddress }
             onChange={ (e) => handleChange(e.target) }
+            disabled={productsSold.length === 0}
             data-testid="customer_checkout__input-address"
           />
           <input
@@ -99,11 +105,13 @@ export default function Checkout() {
             pattern="[0-9]*"
             value={ order.deliveryNumber }
             onChange={ (e) => handleChange(e.target) }
+            disabled={productsSold.length === 0}
             data-testid="customer_checkout__input-addressNumber"
             />
           <button
             type="button"
             onClick={ () => sendOrder() }
+            disabled={productsSold.length === 0}
             data-testid="customer_checkout__button-submit-order"
             >
             finalizar pedido
