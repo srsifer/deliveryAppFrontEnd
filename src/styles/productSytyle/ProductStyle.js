@@ -7,19 +7,19 @@ export const StyleDivProduct = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: #f7f7f7 !important;
+  background-color: ${props => props.theme.colors.background};
   background-repeat: no-repeat;
   background-size: 350ex;
   background-position: center;
   @media (max-width: 600px){
   /* mobile screen */
-  background-color: #f7f7f7 !important;
+  background-color: ${props => props.theme.colors.background};
   }
 `;
 
 export const StyleDivTotalPrice = styled.div`
   background-color: ${props => props.theme.colors.secundary};
-  color: ${props => props.theme.font.color.secundary};
+  color: white;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -35,7 +35,7 @@ export const StyleDivTotalPrice = styled.div`
 export const TotalButton = styled.button`
   background-color: ${props => props.theme.colors.secundary}; /* Green */
   border: none;
-  color: ${props => props.theme.font.color.secundary};
+  color: white;
   text-align: center;
   text-decoration: none;
   display: inline-block;

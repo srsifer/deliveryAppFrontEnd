@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DivAllOrders = styled.div`
-    background-color:  #f8f8f8;
+    background-color: ${props => props.theme.colors.background};
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -14,7 +14,7 @@ export const DivAllOrders = styled.div`
     justify-items: center;
     text-decoration: none;
     a {
-      color: ${props => props.theme.colors.secundary};
+      color: ${props => props.theme.font.color.otherColor};
       text-decoration: none;
     }
 `;
@@ -31,7 +31,7 @@ export const OrderDiv = styled.div`
     :hover{
         transform: scale(1.1);
     }
-    box-shadow: 5px 5px 5px #B2B8BC;
+    box-shadow: 5px 5px 5px ${props => props.theme.colors.shadows};
 `;
 
 export const IdDivOrder = styled.div`
@@ -43,7 +43,7 @@ export const IdDivOrder = styled.div`
     align-items: center;
     font-weight: bold;
     font-size: 40px;
-    color: ${props => props.theme.font.color.primary};
+    color: ${props => props.theme.font.color.otherColor};
 `;
 
 export const StatusOrderStyles = styled(IdDivOrder)`

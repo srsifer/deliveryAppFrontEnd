@@ -71,13 +71,14 @@ export const NavBarOrders = styled(NavBarProducs)`
     a {
       color: ${props => props.theme.font.color.primary};
     }
-    background-color: #f7f7f7 !important;
+    background-color: ${props => props.theme.colors.background} !important;
   }
 `;
 
 export const NavBarProfile = styled(NavBarProducs)`
   background-color: ${props => props.theme.colors.primary};
   width: 20%;
+  align-items: center;
   color: ${props => props.theme.font.color.secundary};
   @media (max-width: 600px){
   /* mobile screen */
@@ -100,7 +101,7 @@ export const NavBarCheckout = styled(NavBarProducs)`
   @media (max-width: 600px){
   /* mobile screen */
     width: 100%;
-    background-color: #f7f7f7 !important;
+    background-color: ${props => props.theme.colors.background} !important;
     border-radius: 0px 0px 10px 10px;
   }
 `;

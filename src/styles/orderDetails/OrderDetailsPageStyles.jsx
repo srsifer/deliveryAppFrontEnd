@@ -5,13 +5,13 @@ export const DetailsOrderDiv = styled.div`
     height: min-content;
     margin-left: auto;
     margin-right: auto; 
-    background-color: ${props => props.theme.font.color.secundary};
+    background-color: ${props => props.theme.colors.background};
     display: flex;
     flex-direction: column;
     margin-top:4em;
     padding-left: 1em;
     padding-right: 1em;
-    color: ${props => props.theme.colors.secundary};
+    color: ${props => props.theme.font.color.primary};
     p {
         font-weight: bold;
         font-size: 18px;

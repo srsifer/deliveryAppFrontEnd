@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DivCard = styled.div`
-  box-shadow: 5px 5px 5px #B2B8BC;
+  box-shadow: 5px 5px 5px ${props => props.theme.colors.shadows};
   width: 300px;
   height: 400px;
   margin: 15px;
@@ -18,6 +18,11 @@ export const DivCard = styled.div`
     p {
       text-align: center;
       color: ${props => props.theme.font.color.primary};
+      margin: 10px;
+    }
+    h3 {
+      text-align: center;
+      color: ${props => props.theme.font.color.otherColor};
       margin: 10px;
     }
   @media (max-width: 600px){
@@ -53,10 +58,10 @@ export const DivCardButons = styled.div`
     font-weight: bolder;
     font-size: large;
     width: 50px;
-    height: 25px;
-    padding: 4px;
+    height: 31px;
+    padding: 5px;
     border: none;
-    color: ${props => props.theme.font.color.primary};
+    color: ${props => props.theme.font.color.otherColor};
     border-radius: 2px;
     margin: 1px;
   }

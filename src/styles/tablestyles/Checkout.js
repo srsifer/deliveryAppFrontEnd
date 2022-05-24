@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DivBodyCheckout = styled.div`
-background-color: #f7f7f7;
+background-color: ${props => props.theme.colors.background};
 `;
 
 export const MainChekoutDiv = styled.div`
@@ -31,11 +31,11 @@ export const TotalDiv = styled.div`
 `;
 
 export const AddressDiv = styled.div`
-border: 1px solid ${props => props.theme.colors.secundary};
+box-shadow: 0 0 2em ${props => props.theme.colors.shadows};
 border-radius: 10px;
 padding:10px;
-color: ${props => props.theme.colors.secundary};
-background-color: #eff0f0;
+color: ${props => props.theme.font.color.primary};
+background-color: ${props => props.theme.colors.secundary}
 
   p {
     font-size: 20px;
@@ -55,7 +55,7 @@ background-color: #eff0f0;
         transform: scale(1.0)
       }
   }
-  
+
   input {
     height: 40px;
     width: 500px;

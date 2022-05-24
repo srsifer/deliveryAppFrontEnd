@@ -55,12 +55,12 @@ export default function ProductCard(props) {
   return (
     <DivCard>
       <Price>
-        <p>R$</p>
-        <p
+        <h3>R$</h3>
+        <h3
           data-testid={ `customer_products__element-card-price-${id}` }
         >
           { price.replace('.', ',')}
-        </p>
+        </h3>
       </Price>
       <img
         src={ `${urlImage}` }
