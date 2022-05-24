@@ -38,13 +38,13 @@ export const TdTotalPrice = styled(TdIten)`
 
 export const TdRemoveItem = styled(TdIten)`
   background-color:red;
-  color: white;
+  color: ${props => props.theme.font.color.secundary};
   border-radius: 0px 5px 5px 0px;
 `;
 
 export const ButtonTableRemoveItem = styled.button`
  background-color: red;
- color: white;
+ color: ${props => props.theme.font.color.secundary};
  width: 100%;
  height: 100%;
  border-style: none;

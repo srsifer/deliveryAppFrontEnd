@@ -20,7 +20,7 @@ export const DivAllOrders = styled.div`
 `;
 
 export const OrderDiv = styled.div`
-    background-color: white;
+    background-color: ${props => props.theme.font.color.secundary};
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -43,7 +43,7 @@ export const IdDivOrder = styled.div`
     align-items: center;
     font-weight: bold;
     font-size: 40px;
-    color: black;
+    color: ${props => props.theme.font.color.primary};
 `;
 
 export const StatusOrderStyles = styled(IdDivOrder)`

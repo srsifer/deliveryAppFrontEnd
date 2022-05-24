@@ -18,7 +18,7 @@ align-items: stretch;
 export const TotalDiv = styled.div`
   background-color: ${props => props.theme.colors.primary}; /* Green */
   border-radius:15px;
-  color: white;
+  color: ${props => props.theme.font.color.secundary};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,10 +31,10 @@ export const TotalDiv = styled.div`
 `;
 
 export const AddressDiv = styled.div`
-border: 1px solid #001427;
+border: 1px solid ${props => props.theme.colors.secundary};
 border-radius: 10px;
 padding:10px;
-color: #001427;
+color: ${props => props.theme.colors.secundary};
 background-color: #eff0f0;
 
   p {
@@ -49,12 +49,13 @@ background-color: #eff0f0;
    font-weight: bold;
    text-align: center;
    border-radius: 5px;
-   background-color: #001427;
-   color: white;
+   background-color: ${props => props.theme.colors.secundary};
+   color: ${props => props.theme.font.color.secundary};
       :hover {
         transform: scale(1.0)
       }
   }
+  
   input {
     height: 40px;
     width: 500px;
@@ -67,8 +68,8 @@ background-color: #eff0f0;
   }
 
   button {
-    background-color: #001427;
-    color: white;
+    background-color: ${props => props.theme.colors.secundary};
+    color: ${props => props.theme.font.color.secundary};
     border: none;
     height: 46px;
     font-size: larger;

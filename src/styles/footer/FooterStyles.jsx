@@ -5,5 +5,5 @@ export const FooterStyle = styled.footer`
     padding: 10px;
     bottom: 0;
     position:relative;
-    color: white;
+    color: ${props => props.theme.font.color.secundary};
 `;

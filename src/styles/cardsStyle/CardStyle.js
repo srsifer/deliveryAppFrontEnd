@@ -17,7 +17,7 @@ export const DivCard = styled.div`
     }
     p {
       text-align: center;
-      color: ${props => props.theme.cardScheme.cardFontColor};
+      color: ${props => props.theme.font.color.primary};
       margin: 10px;
     }
   @media (max-width: 600px){
@@ -49,12 +49,14 @@ export const DivCardFooter = styled.div`
 
 export const DivCardButons = styled.div`
   input {
+    text-align: center;
+    font-weight: bolder;
+    font-size: large;
     width: 50px;
     height: 25px;
-    background-color: #f2f2f2;
     padding: 4px;
     border: none;
-    color: ${props => props.theme.cardScheme.cardFontColor};
+    color: ${props => props.theme.font.color.primary};
     border-radius: 2px;
     margin: 1px;
   }
@@ -64,10 +66,10 @@ export const ButtonAdd = styled.button`
     border: none;
     padding: 10px;
     text-decoration: none;
-    color: white;
+    color: ${props => props.theme.font.color.secundary};
     cursor: pointer;
     transition: background .3s;
-    background-color: ${props => props.theme.cardScheme.cardButtonColor};
+    background-color: ${props => props.theme.colors.secundary};
     border-radius: 0px 10px 10px 0px ;
     font-weight: bold;
     font-size: large;
