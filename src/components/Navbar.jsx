@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Redirect, Link } from 'react-router-dom';
 import { changeSubtotalList } from '../redux/slice/productCart';
 import { navbarConfig } from '../styles/themes/NavbarConfig';
+import { shade } from 'polished'
+import Switch from 'react-switch'
 import {
   NavbarDiv,
   NavBarProducs,
@@ -10,9 +12,12 @@ import {
   NavBarProfile,
   NavBarCheckout,
 } from '../styles/navBarStyles/NavBarStyles';
+import themes from '../styles/themes/light';
+import { changeTheme } from '../redux/slice/themeSelect';
 
 export default function Navbar({ menu }) {
   const dispatch = useDispatch();
+  const [darkModeON, setDarkModeOn] = useState(false)
 
   const productsSold = useSelector(({ productCartReducer }) => (
     productCartReducer.subtotalCartList)).filter((product) => product.subtotal > 0);
@@ -88,6 +93,12 @@ export default function Navbar({ menu }) {
     }
   };
 
+
+  const toggleTheme = () => {
+    dispatch(changeTheme())
+    setDarkModeOn(!darkModeON)
+  }
+
   return (
     <NavbarDiv menu={menu}>
 
@@ -98,6 +109,17 @@ export default function Navbar({ menu }) {
         <h3 data-testid="customer_products__element-navbar-user-full-name">
           {userName}
         </h3>
+        <Switch
+          onChange={toggleTheme}
+          checked={darkModeON}
+          checkedIcon={false}
+          uncheckedHandleIcon={false}
+          height={15}
+
+          handleDiameter={20}
+          onColor={themes.colors.secundary}
+          offColor={shade(0.15, themes.colors.primary)}
+        />
       </NavBarProfile>
       <NavBarCheckout>
         <button
