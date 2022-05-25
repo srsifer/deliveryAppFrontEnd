@@ -22,10 +22,11 @@ export const DivAllOrders = styled.div`
 export const OrderDiv = styled.div`
     background-color: ${props => props.theme.font.color.secundary};
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
     width: 30em;
-    height: 120px;
+    height: max-content;
     margin: 1em;
     border-radius: 1em;
     :hover{
@@ -60,3 +61,11 @@ export const OrderDateAndPrice = styled.div`
     align-items: center;
     font-weight: bold;
 `;
+export const DivAdressCardOrder = styled.div`
+    width: 100%;
+    height: min-content;
+    background-color: ${props => props.theme.colors.secundary};
+    text-align: center;
+    border-radius: 10px;
+    color: ${props => props.theme.font.color.secundary}
+`
