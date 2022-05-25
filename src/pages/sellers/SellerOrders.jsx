@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import StatusOrder from '../../components/customers/StatusOrder';
 import Navbar from '../../components/Navbar';
 import { getOrdersByUser } from '../../services/apiCalls';
+import { DivAllOrders, IdDivOrder, OrderDateAndPrice, OrderDiv, DivAdressCardOrder } from '../../styles/ordersStyles/orderStyles';
 import socket from '../../utils/socketClient';
 
 export default function SellerOrders() {
@@ -30,34 +32,38 @@ export default function SellerOrders() {
   return (
     <div>
       <Navbar />
+      <DivAllOrders>
       {
         orders.map((order, index) => (
           <Link
             key={ index }
             to={ `/seller/orders/${order.id}` }
           >
-            <div
+            <OrderDiv
               key={ index }
             >
-              <p data-testid={ `seller_orders__element-order-id-${order.id}` }>
+              <IdDivOrder data-testid={ `seller_orders__element-order-id-${order.id}` }>
                 { order.id }
+              </IdDivOrder>
+              <StatusOrder order={order}/>
+              <OrderDateAndPrice>
+                <p data-testid={ `seller_orders__element-order-date-${order.id}` }>
+                  { order.saleDate }
+                </p>
+                <p data-testid={ `seller_orders__element-card-price-${order.id}` }>
+                  { order.totalPrice.replace('.', ',') }
+                </p>
+              </OrderDateAndPrice>
+            <DivAdressCardOrder>
+              <p data-testid={ `seller_orders__element-card-address-${order.id}` }>
+                { `${order.deliveryAddress}, ${order.deliveryNumber}` }
               </p>
-              <p data-testid={ `seller_orders__element-delivery-status-${order.id}` }>
-                { order.status }
-              </p>
-              <p data-testid={ `seller_orders__element-order-date-${order.id}` }>
-                { order.saleDate }
-              </p>
-              <p data-testid={ `seller_orders__element-card-price-${order.id}` }>
-                { order.totalPrice.replace('.', ',') }
-              </p>
-            </div>
-            <p data-testid={ `seller_orders__element-card-address-${order.id}` }>
-              { `${order.deliveryAddress}, ${order.deliveryNumber}` }
-            </p>
+            </DivAdressCardOrder>
+            </OrderDiv>
           </Link>
         ))
       }
+      </DivAllOrders>
     </div>
   );
 }

@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import SellerOrderDetailsTable from '../../components/sellers/SellerOrderDetailsTable';
 import { getOrderById } from '../../services/apiCalls';
+import { DetailsOrderDiv, InfoOrderDeshboard, MarkSenddButton, PrepareOrderButton } from '../../styles/orderDetails/OrderDetailsPageStyles';
+import { TotalDiv } from '../../styles/tablestyles/Checkout';
 import socket from '../../utils/socketClient';
 
 export default function OrderDetails() {
@@ -37,53 +39,55 @@ export default function OrderDetails() {
   const datId = 'seller_order_details__element-order';
 
   return (
-    <div>
+    <>
       <Navbar />
-      <h2>
-        Detalhe do pedido
-      </h2>
-      <div>
-        <p
-          data-testid={ `${datId}-details-label-order-id` }
-        >
-          {order.id}
-        </p>
-        <p
-          data-testid={ `${datId}-details-label-order-date` }
-        >
-          {order.saleDate}
-        </p>
-        <p
-          data-testid={ `${datId}-details-label-delivery-status` }
-        >
-          {order.status}
-        </p>
-        <button
-          type="button"
-          value="Preparando"
-          disabled={ order.status !== 'Pendente' }
-          onClick={ (e) => changeStatus(e) }
-          data-testid="seller_order_details__button-preparing-check"
-        >
-          Preparar pedido
-        </button>
-        <button
-          type="button"
-          value="Em Trânsito"
-          disabled={ order.status !== 'Preparando' }
-          onClick={ (e) => changeStatus(e) }
-          data-testid="seller_order_details__button-dispatch-check"
-        >
-          Saiu para entrega
-        </button>
-      </div>
-      <SellerOrderDetailsTable products={ products } datId={ datId } />
-      <p data-testid={ `${datId}-total-price` }>
-        {
-          `Total: ${Number(order.totalPrice)
-            .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`
-        }
-      </p>
-    </div>
+      <DetailsOrderDiv>
+        <h2>
+          Detalhe do pedido
+        </h2>
+        <InfoOrderDeshboard>
+          <p
+            data-testid={`${datId}-details-label-order-id`}
+          >
+            {order.id}
+          </p>
+          <p
+            data-testid={`${datId}-details-label-order-date`}
+          >
+            {order.saleDate}
+          </p>
+          <p
+            data-testid={`${datId}-details-label-delivery-status`}
+          >
+            {order.status}
+          </p>
+          <PrepareOrderButton
+            type="button"
+            value="Preparando"
+            disabled={order.status !== 'Pendente'}
+            onClick={(e) => changeStatus(e)}
+            data-testid="seller_order_details__button-preparing-check"
+          >
+            Preparar pedido
+          </PrepareOrderButton>
+          <MarkSenddButton
+            type="button"
+            value="Em Trânsito"
+            disabled={order.status !== 'Preparando'}
+            onClick={(e) => changeStatus(e)}
+            data-testid="seller_order_details__button-dispatch-check"
+          >
+            Saiu para entrega
+          </MarkSenddButton>
+        </InfoOrderDeshboard>
+        <SellerOrderDetailsTable products={products} datId={datId} />
+        <TotalDiv data-testid={`${datId}-total-price`}>
+          {
+            `Total: ${Number(order.totalPrice)
+              .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`
+          }
+        </TotalDiv>
+      </DetailsOrderDiv>
+    </>
   );
 }

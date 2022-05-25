@@ -52,3 +52,5 @@ export const MarkSenddButton = styled.button`
         color:white;
     }
 `;
+
+export const PrepareOrderButton = styled(MarkSenddButton)``;
