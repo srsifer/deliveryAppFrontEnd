@@ -31,6 +31,7 @@ export const OrderDiv = styled.div`
     border-radius: 1em;
     :hover{
         transform: scale(1.1);
+        box-shadow: 15px 15px 15px ${props => props.theme.colors.shadows};
     }
     box-shadow: 5px 5px 5px ${props => props.theme.colors.shadows};
 `;
@@ -66,6 +67,8 @@ export const DivAdressCardOrder = styled.div`
     height: min-content;
     background-color: ${props => props.theme.colors.secundary};
     text-align: center;
+    font-size: larger;
+    font-weight: bold;
     border-radius: 10px;
     color: ${props => props.theme.font.color.secundary}
 `

@@ -1,5 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  TdIten,
+  TdDescription,
+  TdQuantity,
+  TdUnitPrice,
+  TdTotalPrice,
+} from '../../styles/tablestyles/tableSltyles'
 
 export default function
 SellerOrderDetailsTableBody({ product, index, datId }) {
@@ -7,31 +14,31 @@ SellerOrderDetailsTableBody({ product, index, datId }) {
 
   return (
     <tr key={ index }>
-      <td
+      <TdIten
         data-testid={ `${datId}-table-item-number-${index}` }
       >
         {index + 1}
-      </td>
-      <td
+      </TdIten>
+      <TdDescription
         data-testid={ `${datId}-table-name-${index}` }
       >
         {name}
-      </td>
-      <td
+      </TdDescription>
+      <TdQuantity
         data-testid={ `${datId}-table-quantity-${index}` }
       >
         {quantity}
-      </td>
-      <td
+      </TdQuantity>
+      <TdUnitPrice
         data-testid={ `${datId}-table-unit-price-${index}` }
       >
         {price.replace('.', ',')}
-      </td>
-      <td
+      </TdUnitPrice>
+      <TdTotalPrice
         data-testid={ `${datId}-table-sub-total-${index}` }
       >
         {(Number(price) * (quantity)).toFixed(2) }
-      </td>
+      </TdTotalPrice>
     </tr>
   );
 }
