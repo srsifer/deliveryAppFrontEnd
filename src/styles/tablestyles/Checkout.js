@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DivBodyCheckout = styled.div`
-background-color: #f7f7f7;
+background-color: ${props => props.theme.colors.background};
 `;
 
 export const MainChekoutDiv = styled.div`
@@ -18,7 +18,7 @@ align-items: stretch;
 export const TotalDiv = styled.div`
   background-color: ${props => props.theme.colors.primary}; /* Green */
   border-radius:15px;
-  color: white;
+  color: ${props => props.theme.font.color.secundary};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,12 +30,12 @@ export const TotalDiv = styled.div`
   margin-left: auto !important;
 `;
 
-export const AddressDiv = styled.form`
-border: 1px solid #001427;
+export const AddressDiv = styled.div`
+box-shadow: 0 0 2em ${props => props.theme.colors.shadows};
 border-radius: 10px;
 padding:10px;
-color: #001427;
-background-color: #eff0f0;
+color: ${props => props.theme.font.color.primary};
+background-color: ${props => props.theme.colors.secundary}
 
   p {
     font-size: 20px;
@@ -49,12 +49,13 @@ background-color: #eff0f0;
    font-weight: bold;
    text-align: center;
    border-radius: 5px;
-   background-color: #001427;
-   color: white;
+   background-color: ${props => props.theme.colors.secundary};
+   color: ${props => props.theme.font.color.secundary};
       :hover {
         transform: scale(1.0)
       }
   }
+
   input {
     height: 40px;
     width: 500px;
@@ -71,8 +72,8 @@ background-color: #eff0f0;
   }
 
   button {
-    background-color: #001427;
-    color: white;
+    background-color: ${props => props.theme.colors.secundary};
+    color: ${props => props.theme.font.color.secundary};
     border: none;
     height: 46px;
     font-size: larger;
@@ -81,6 +82,19 @@ background-color: #eff0f0;
     border-radius: 10px;
     height:50px;
     width: 200px;
+    :disabled {
+        :hover {
+            transform: scale(1.0);
+        }
+        background-color: #B0C4DE;
+        color:white;
+    }
+    :hover {
+      transform: scale(1.1);
+      transition-duration: 500ms;
+      box-shadow: 5px 5px 5px ${props => props.theme.colors.primary};
+      cursor: pointer;
+    }
   }
 `;
 

@@ -1,19 +1,26 @@
 export default  {
-    title: 'ligth',
+    title: 'light',
 
     colors: {
-        primary:"#f6943c",
-        secundary:"#001427",
-        fontColor: 'white',
+        primary: "#f6943c",
+        secundary: "#001427",
         background: '#f5f5f5',
+        shadows: '#B2B8BC',
     },
 
     cardScheme: {
         cardBg: 'white',
         cardFooterBg: '#f9f9fa',
-        cardFontColor: '#333',
         cardButtonColor: '#001427',
         cardInputColor: 'white'
+    },
+
+    font: {
+        color: {
+            primary: '#333',
+            secundary: 'white',
+            otherColor: '#333'
+        }
     },
 
     totalPriceScheme: { 

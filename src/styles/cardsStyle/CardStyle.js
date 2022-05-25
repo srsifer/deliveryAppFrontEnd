@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DivCard = styled.div`
-  box-shadow: 5px 5px 5px #B2B8BC;
+  box-shadow: 5px 5px 5px ${props => props.theme.colors.shadows};
   width: 300px;
   height: 400px;
   margin: 15px;
@@ -17,10 +17,22 @@ export const DivCard = styled.div`
     }
     p {
       text-align: center;
-      color: ${props => props.theme.cardScheme.cardFontColor};
+      color: ${props => props.theme.font.color.primary};
       margin: 10px;
     }
-  @media (max-width: 600px){
+    h3 {
+      text-align: center;
+      color: ${props => props.theme.font.color.otherColor};
+      margin: 10px;
+    }
+
+    :hover {
+      transform: scale(1.1);
+      transition-duration: 500ms;
+      box-shadow: 15px 15px 15px ${props => props.theme.colors.shadows};
+    }
+    
+    @media (max-width: 600px){
   /* mobile screen */
   width: 150px;
   height: 200px;
@@ -49,12 +61,14 @@ export const DivCardFooter = styled.div`
 
 export const DivCardButons = styled.div`
   input {
+    text-align: center;
+    font-weight: bolder;
+    font-size: large;
     width: 50px;
-    height: 25px;
-    background-color: #f2f2f2;
-    padding: 4px;
+    height: 31px;
+    padding: 5px;
     border: none;
-    color: ${props => props.theme.cardScheme.cardFontColor};
+    color: ${props => props.theme.font.color.otherColor};
     border-radius: 2px;
     margin: 1px;
     &::-webkit-inner-spin-button {
@@ -67,10 +81,10 @@ export const ButtonAdd = styled.button`
     border: none;
     padding: 10px;
     text-decoration: none;
-    color: white;
+    color: ${props => props.theme.font.color.secundary};
     cursor: pointer;
     transition: background .3s;
-    background-color: ${props => props.theme.cardScheme.cardButtonColor};
+    background-color: ${props => props.theme.colors.secundary};
     border-radius: 0px 10px 10px 0px ;
     font-weight: bold;
     font-size: large;

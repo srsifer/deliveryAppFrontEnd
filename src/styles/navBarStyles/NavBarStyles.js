@@ -1,12 +1,13 @@
 import styled from 'styled-components';
-import logout from '../../images/logout.png'
+
+import { shade } from 'polished'
 export const NavbarDiv = styled.div`
   color: ${props => props.theme.colors.secundary};
   top: 0 !important;
   position: relative !important;
   width: 100%;
     a {
-      color: ${props => props.theme.colors.fontColor};
+      color: ${props => props.theme.font.color.secundary};
       text-decoration: none;
     }
   display: flex;
@@ -23,7 +24,7 @@ export const NavbarDiv = styled.div`
   max-width: 100%;
   height:230px;
   border-radius: 10px;
-  background-color: black;
+  background-color: ${props => props.theme.font.color.primary};
   z-index: 0;
   left: 0;
   margin-top: 9%;
@@ -35,7 +36,7 @@ export const MenuP = styled.label`
 position: fixed;
 width: 100%;
 top:0;
-color: white;
+color: ${props => props.theme.font.color.secundary};
 border-radius: 0px 0px 10px 10px;
 text-align: justify;
 background-color:#F61B1B;
@@ -69,16 +70,17 @@ export const NavBarOrders = styled(NavBarProducs)`
   /* mobile screen */
     width: 100%;
     a {
-      color: black;
+      color: ${props => props.theme.font.color.primary};
     }
-    background-color: #f7f7f7 !important;
+    background-color: ${props => props.theme.colors.background} !important;
   }
 `;
 
 export const NavBarProfile = styled(NavBarProducs)`
   background-color: ${props => props.theme.colors.primary};
   width: 20%;
-  color: ${props => props.theme.colors.fontColor};
+  align-items: center;
+  color: ${props => props.theme.font.color.secundary};
   @media (max-width: 600px){
   /* mobile screen */
   display: none !important;
@@ -92,15 +94,36 @@ export const NavBarCheckout = styled(NavBarProducs)`
   width: 10%;
   button {
     border: none;
-    color: ${props => props.theme.colors.fontColor};
-    background-image: url(${logout});
-    background-repeat: no-repeat;
-    background-size: 50px;
+    color: ${props => props.theme.font.color.secundary};
+    background-color:${props => props.theme.colors.secundary};
+    :hover {
+      @keyframes shake {
+        10%, 90% {
+          transform: translate3d(-1px, 0, 0);
+        }
+        
+        20%, 80% {
+          transform: translate3d(2px, 0, 0);
+        }
+
+        30%, 50%, 70% {
+          transform: translate3d(-4px, 0, 0);
+        }
+
+        40%, 60% {
+          transform: translate3d(4px, 0, 0);
+        }
+      }
+      animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+      transform: translate3d(0, 0, 0);
+      transition-duration: 500ms;
+      cursor: pointer;
+    }
   }
   @media (max-width: 600px){
   /* mobile screen */
     width: 100%;
-    background-color: #f7f7f7 !important;
+    background-color: ${props => props.theme.colors.background} !important;
     border-radius: 0px 0px 10px 10px;
   }
 `;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const TableDiv = styled.table`
 height:200px;
-box-shadow: 0 0 1em #00000099;
+box-shadow: 0 0 1em ${props => props.theme.colors.shadows};
 border-radius: 10px;
 padding: 10px;
   tr {
@@ -10,6 +10,10 @@ padding: 10px;
     height: 50px;
     border-style: none;
     font-size: 25px;
+  }
+
+  th {
+    color: ${props => props.theme.font.color.primary};
   }
 `;
 
@@ -38,15 +42,21 @@ export const TdTotalPrice = styled(TdIten)`
 
 export const TdRemoveItem = styled(TdIten)`
   background-color:red;
-  color: white;
+  color: ${props => props.theme.font.color.secundary};
   border-radius: 0px 5px 5px 0px;
 `;
 
 export const ButtonTableRemoveItem = styled.button`
  background-color: red;
- color: white;
+ color: ${props => props.theme.font.color.secundary};
  width: 100%;
  height: 100%;
  border-style: none;
  font-size: x-large;
+ :hover {
+      transform: scale(1.1);
+      transition-duration: 500ms;
+      box-shadow: 5px 5px 5px red;
+      cursor: pointer;
+    }
 `;

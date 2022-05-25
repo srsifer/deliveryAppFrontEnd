@@ -7,13 +7,13 @@ export const StyleDivProduct = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: #f7f7f7 !important;
+  background-color: ${props => props.theme.colors.background};
   background-repeat: no-repeat;
   background-size: 350ex;
   background-position: center;
   @media (max-width: 600px){
   /* mobile screen */
-  background-color: #f7f7f7 !important;
+  background-color: ${props => props.theme.colors.background};
   }
 `;
 
