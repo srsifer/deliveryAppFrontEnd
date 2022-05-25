@@ -44,7 +44,7 @@ SellerOrderDetailsTableBody({ product, index, datId }) {
 }
 
 SellerOrderDetailsTableBody.propTypes = ({
-  products: PropTypes.arrayOf(PropTypes.object),
+  //products: PropTypes.arrayOf(PropTypes.object),
   index: PropTypes.number,
   datId: PropTypes.string,
 }).isRequired;

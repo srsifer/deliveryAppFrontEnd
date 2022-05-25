@@ -28,15 +28,16 @@ export const LoguinDiv = styled.div`
 
 export const InputsDiv = styled.div`
   @media (min-width: 600px){
-  border-radius: 15px;
-  background-color: ${props => props.theme.colors.primary};
+  border-radius: 0 15px 15px 0;
+  background-color: rgba(0,20,39, 0.75);
   background-size: 150ex;
-  box-shadow: 0 0 1em #FFBF00;
+  left: -500px;
+  transition: all 1s linear;
+  transform: translateX(${props => props.transition});
   width: 500px;
-  height: 700px;
+  height: 100%;
   position: absolute;
-  top: 12%;
-  left: 0; right: 0;
+  
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -92,11 +93,11 @@ export const DivButonsLoguin = styled.div`
   justify-content: center;
 `
 export const LogoDoApp = styled.div`
-  width: 80%;
+  width: 95%;
   height: 300px;
   text-align: center;
   background-image: url(${logo});
-  background-size: 75%;
+  background-size: 90%;
 
   background-repeat: no-repeat;
   background-position: center;
@@ -113,7 +114,7 @@ export const ButonsSend = styled.button`
   font-size: 30px;
   color: ${props => props.theme.font.color.secundary};
   margin:15px;
-  background-color: ${props => props.theme.colors.secundary};
+  background-color:  rgba(246,148,60, 0.75);
   :hover {
     background-color: ${props => props.theme.font.color.secundary};
     color: ${props => props.theme.font.color.primary};

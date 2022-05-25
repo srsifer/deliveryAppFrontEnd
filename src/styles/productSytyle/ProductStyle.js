@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import backgroud2 from '../../images/backgroud2.jpg'
-import backgroud1 from '../../images/backgroudTelaLoginDeliveryApp.jpg'
+
 
 export const StyleDivProduct = styled.div`
   display: flex;
