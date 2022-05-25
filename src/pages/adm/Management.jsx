@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import { registerValidation } from '../../utils/inputValidations';
 import { apiRegisterByAdmin, getUsers, removeUser } from '../../services/apiCalls';
+
 import ManagementUsersTable from '../../components/adm/ManagementUsersTable';
+import { DashboardAdm, MainDashboarDiv } from '../../styles/admStyles/admStyles';
 
 export default function Management() {
   const [hiddenOn, hiddenOnSet] = useState(true);
@@ -61,59 +63,64 @@ export default function Management() {
     <>
       <div>
         <Navbar />
-        <p
-          data-testid="admin_manage__element-invalid-register"
-          hidden={ hiddenOn }
-        >
-          Person already registered
-        </p>
-        <input
-          name="name"
-          type="text"
-          value={ newUser.name }
-          onChange={ handleChange }
-          placeholder="Nome e sobrenome"
-          data-testid="admin_manage__input-name"
-        />
-        <input
-          name="email"
-          type="text"
-          value={ newUser.email }
-          onChange={ handleChange }
-          placeholder="E-mail"
-          data-testid="admin_manage__input-email"
-        />
-        <input
-          name="password"
-          type="password"
-          value={ newUser.password }
-          onChange={ handleChange }
-          placeholder="Insira sua senha"
-          data-testid="admin_manage__input-password"
-        />
-        <select
-          name="role"
-          value={ newUser.role }
-          onChange={ handleChange }
-          data-testid="admin_manage__select-role"
-        >
-          <option value="customer">Cliente</option>
-          <option value="seller">Vendedor</option>
-          <option value="administrator">Admin</option>
-        </select>
-        <button
-          type="button"
-          disabled={ switchDisabledButton() }
-          onClick={ () => sendRegister() }
-          data-testid="admin_manage__button-register"
-        >
-          Cadastrar
-        </button>
+        <MainDashboarDiv>
+          <DashboardAdm>
+            <h2>Novo cadastro</h2>
+            <p
+              data-testid="admin_manage__element-invalid-register"
+              hidden={hiddenOn}
+            >
+              Person already registered
+            </p>
+            <input
+              name="name"
+              type="text"
+              value={newUser.name}
+              onChange={handleChange}
+              placeholder="Nome e sobrenome"
+              data-testid="admin_manage__input-name"
+            />
+            <input
+              name="email"
+              type="text"
+              value={newUser.email}
+              onChange={handleChange}
+              placeholder="E-mail"
+              data-testid="admin_manage__input-email"
+            />
+            <input
+              name="password"
+              type="password"
+              value={newUser.password}
+              onChange={handleChange}
+              placeholder="Insira sua senha"
+              data-testid="admin_manage__input-password"
+            />
+            <select
+              name="role"
+              value={newUser.role}
+              onChange={handleChange}
+              data-testid="admin_manage__select-role"
+            >
+              <option value="customer">Cliente</option>
+              <option value="seller">Vendedor</option>
+              <option value="administrator">Admin</option>
+            </select>
+            <button
+              type="button"
+              disabled={switchDisabledButton()}
+              onClick={() => sendRegister()}
+              data-testid="admin_manage__button-register"
+            >
+              Cadastrar
+            </button>
+          </DashboardAdm>
+          <ManagementUsersTable
+            users={usersList}
+            deleteUser={deleteUser}
+          />
+        </MainDashboarDiv>
       </div>
-      <ManagementUsersTable
-        users={ usersList }
-        deleteUser={ deleteUser }
-      />
     </>
   );
 }
