@@ -10,6 +10,7 @@ import {
   TotalButton,
 } from '../../styles/productSytyle/ProductStyle';
 import Footer from '../../components/customers/Footer';
+import cart from '../../images/cart';
 
 export default function Products() {
   const totalPrice = useSelector(({ productCartReducer }) => (
@@ -34,19 +35,15 @@ export default function Products() {
         to="/customer/checkout"
         data-testid="customer_products__checkout-bottom-value"
       >
-        <StyleDivTotalPrice>
-          <h2>Ver carrinho: R$</h2>
-          <TotalButton
-            type="button"
-            disabled={totalPrice === '0,00'}
-            onClick={() => localStorage.setItem('total', JSON.stringify(totalPrice))}
-            data-testid="customer_products__button-cart"
-          >
-            {totalPrice}
-          </TotalButton>
-        </StyleDivTotalPrice>
+        <TotalButton
+          totalPrice={totalPrice}
+          type="button"
+          onClick={() => localStorage.setItem('total', JSON.stringify(totalPrice))}
+          data-testid="customer_products__button-cart"
+        >
+          {cart} R$ {totalPrice}
+        </TotalButton>
       </Link>
-      <Footer />
     </>
   );
 }

@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import backgroud2 from '../../images/backgroud2.jpg'
-import backgroud1 from '../../images/backgroudTelaLoginDeliveryApp.jpg'
 
 export const StyleDivProduct = styled.div`
   display: flex;
@@ -17,30 +15,23 @@ export const StyleDivProduct = styled.div`
   }
 `;
 
-export const StyleDivTotalPrice = styled.div`
-  background-color: ${props => props.theme.colors.secundary};
+export const TotalButton = styled.button`
+  background-color: ${props => props.theme.colors.primary};
   bottom: 0;
   cursor: pointer;
-  color: white;
+  display: ${props => props.totalPrice === '0,00' ? 'none' : 'flex'};
   position: fixed;
+  padding: 25px;
+  gap: 20px;
   right: 0;
-  width: 300px;
-  height: 50px;
+  width: auto;
+  height: 30px;
   border-radius: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-`;
-
-export const TotalButton = styled.button`
-  background-color: ${props => props.theme.colors.secundary}; /* Green */
-  border: none;
-  color: white;
-  cursor: pointer;
-  display: inline-block;
   font-size: 30px;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: ${props => props.theme.font.primary};
   text-decoration: none;
 `;
 
