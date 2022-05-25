@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import CheckoutTableBody from './CheckoutTableBody';
 import {TableDiv} from '../../styles/tablestyles/tableSltyles'
 
-export default function CheckoutTable({ productsSold }) {
+export default function CheckoutTable(props) {
+  const { productsSold } = props;
   return (
     <TableDiv>
       <thead>
@@ -19,7 +20,11 @@ export default function CheckoutTable({ productsSold }) {
       <tbody>
         {
           productsSold.map((product, index) => (
-            <CheckoutTableBody product={ product } key={ index } index={ index } />))
+            <CheckoutTableBody
+              product={ product }
+              key={ index }
+              index={ index }
+            />))
         }
       </tbody>
     </TableDiv>

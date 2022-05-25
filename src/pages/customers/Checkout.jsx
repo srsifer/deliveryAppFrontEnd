@@ -18,7 +18,7 @@ export default function Checkout() {
 
   const productsSold = useSelector(({ productCartReducer }) => (
     productCartReducer.subtotalCartList)).filter((product) => product.subtotal > 0);
-
+  
   const totalPrice = useSelector(({ productCartReducer }) => (
     productCartReducer.totalPrice));
 
@@ -31,8 +31,6 @@ export default function Checkout() {
     deliveryAddress: '',
     deliveryNumber: '',
     status: 'Pendente',
-    productsSold: productsSold
-      .map(({ id: productId, quantity }) => ({ productId, quantity })),
   });
 
   useEffect(() => {
@@ -56,7 +54,10 @@ export default function Checkout() {
   };
 
   const sendOrder = async () => {
-    const orderDispatched = await createOrder(order);
+    const orderDispatched = await createOrder({
+      ...order,
+      productsSold: productsSold.map(({ id: productId, quantity }) => ({ productId, quantity })),
+    });
     setIdOrder(orderDispatched.id);
     setRedirect(true);
     productsSold.forEach(productSold => {
@@ -70,7 +71,7 @@ export default function Checkout() {
       <NavBar />
       <MainChekoutDiv>
         <h2>Finalizar pedido</h2>
-        <CheckoutTable productsSold={ productsSold } />
+        <CheckoutTable productsSold={ productsSold }/>
           <TotalDiv
             data-testid="customer_checkout__element-order-total-price"
             >
@@ -102,7 +103,6 @@ export default function Checkout() {
           <input
             name="customer-address-number"
             type="number"
-            pattern="[0-9]*"
             value={ order.deliveryNumber }
             onChange={ (e) => handleChange(e.target) }
             disabled={productsSold.length === 0}
@@ -111,7 +111,7 @@ export default function Checkout() {
           <button
             type="button"
             onClick={ () => sendOrder() }
-            disabled={productsSold.length === 0}
+            disabled={Object.values(order).some((value) => !value) || productsSold.length === 0}
             data-testid="customer_checkout__button-submit-order"
             >
             finalizar pedido

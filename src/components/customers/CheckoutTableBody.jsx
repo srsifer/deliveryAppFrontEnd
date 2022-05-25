@@ -10,9 +10,10 @@ import {
   TdTotalPrice,
   TdRemoveItem,
   ButtonTableRemoveItem,
-} from '../../styles/tablestyles/tableSltyles'
-export default function
-CheckoutTableBody({ product: { id, name, quantity, price, subtotal }, index }) {
+} from '../../styles/tablestyles/tableSltyles';
+
+export default function CheckoutTableBody(props) {
+  const { product: { id, name, quantity, price, subtotal }, index } = props;
   const dispatch = useDispatch();
 
   const removeProduct = () => {

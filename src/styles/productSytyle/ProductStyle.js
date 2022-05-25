@@ -19,9 +19,10 @@ export const StyleDivProduct = styled.div`
 
 export const StyleDivTotalPrice = styled.div`
   background-color: ${props => props.theme.colors.secundary};
+  bottom: 0;
+  cursor: pointer;
   color: white;
   position: fixed;
-  bottom: 0;
   right: 0;
   width: 300px;
   height: 50px;
@@ -36,10 +37,11 @@ export const TotalButton = styled.button`
   background-color: ${props => props.theme.colors.secundary}; /* Green */
   border: none;
   color: white;
-  text-align: center;
-  text-decoration: none;
+  cursor: pointer;
   display: inline-block;
   font-size: 30px;
+  text-align: center;
+  text-decoration: none;
 `;
 
 

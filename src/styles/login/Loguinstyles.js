@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import backgroudCerveja from '../../images/backgroudTelaLoginDeliveryApp.jpg'
+import backgroudCerveja from '../../images/backgroudDeliveryapp.jpg'
 import logo from '../../images/logoPngDeliveryApp.png';
 
 export const BodyPage = styled.div`

@@ -65,6 +65,10 @@ background-color: ${props => props.theme.colors.secundary}
     font-weight: bold;
     font-size: large;
     text-align: center;
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
 
   button {

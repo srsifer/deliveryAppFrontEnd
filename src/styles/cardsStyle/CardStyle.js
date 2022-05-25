@@ -71,7 +71,10 @@ export const DivCardButons = styled.div`
     color: ${props => props.theme.font.color.otherColor};
     border-radius: 2px;
     margin: 1px;
-  }
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
 `;
 
 export const ButtonAdd = styled.button`

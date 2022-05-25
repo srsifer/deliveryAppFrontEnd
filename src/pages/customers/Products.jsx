@@ -26,17 +26,16 @@ export default function Products() {
         id="check"
         hidden
       />
-      <MenuP htmlFor="check"
-        onClick={toggleMenu}
-      >{menu}</MenuP>
+      <MenuP htmlFor="check" onClick={toggleMenu}>
+        {menu}
+      </MenuP>
       <ProductList />
       <Link
         to="/customer/checkout"
         data-testid="customer_products__checkout-bottom-value"
       >
         <StyleDivTotalPrice>
-          <h2>ver carrinho: R$</h2>
-
+          <h2>Ver carrinho: R$</h2>
           <TotalButton
             type="button"
             disabled={totalPrice === '0,00'}
