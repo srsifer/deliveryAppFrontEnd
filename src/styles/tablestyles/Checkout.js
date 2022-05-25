@@ -30,7 +30,7 @@ export const TotalDiv = styled.div`
   margin-left: auto !important;
 `;
 
-export const AddressDiv = styled.div`
+export const AddressDiv = styled.form`
 border: 1px solid #001427;
 border-radius: 10px;
 padding:10px;
@@ -64,6 +64,10 @@ background-color: #eff0f0;
     font-weight: bold;
     font-size: large;
     text-align: center;
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
 
   button {
