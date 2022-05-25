@@ -18,11 +18,15 @@ import { changeTheme } from '../redux/slice/themeSelect';
 
 export default function Navbar({ menu }) {
   const dispatch = useDispatch();
-  const [darkModeON, setDarkModeOn] = useState(false)
 
   const productsSold = useSelector(({ productCartReducer }) => (
     productCartReducer.subtotalCartList)).filter((product) => product.subtotal > 0);
+  
+  const theme = useSelector(({ themeSelectReducer }) => (
+    themeSelectReducer.themeTitle
+  ));
 
+  const [darkModeON, setDarkModeOn] = useState(theme === 'light' ? false : true)
   const [redirectOn, setRedirectOn] = useState(false);
   const [userName, setUserName] = useState();
   const { pathname } = useHistory().location;
