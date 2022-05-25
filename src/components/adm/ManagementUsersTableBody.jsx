@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ButtonTableRemoveItem, TdDescription, TdIten, TdRemoveItem, TdTotalPrice } from '../../styles/tablestyles/tableSltyles';
 
 export default function
 ManagementUsersTableBody({ user, deleteUser, index }) {
@@ -9,27 +10,27 @@ ManagementUsersTableBody({ user, deleteUser, index }) {
 
   return (
     <tr key={ index }>
-      <td data-testid={ `${datId}-item-number-${index}` }>
+      <TdIten data-testid={ `${datId}-item-number-${index}` }>
         {index + 1}
-      </td>
-      <td data-testid={ `${datId}-name-${index}` }>
+      </TdIten>
+      <TdDescription data-testid={ `${datId}-name-${index}` }>
         {name}
-      </td>
-      <td data-testid={ `${datId}-email-${index}` }>
+      </TdDescription>
+      <TdDescription data-testid={ `${datId}-email-${index}` }>
         {email}
-      </td>
-      <td data-testid={ `${datId}-role-${index}` }>
+      </TdDescription>
+      <TdTotalPrice data-testid={ `${datId}-role-${index}` }>
         {role}
-      </td>
-      <td>
-        <button
+      </TdTotalPrice>
+      <TdRemoveItem>
+        <ButtonTableRemoveItem
           type="button"
           onClick={ () => deleteUser(id) }
           data-testid={ `${datId}-remove-${index}` }
         >
           Excluir
-        </button>
-      </td>
+        </ButtonTableRemoveItem>
+      </TdRemoveItem>
     </tr>
   );
 }

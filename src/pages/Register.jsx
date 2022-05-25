@@ -10,10 +10,12 @@ import {
   Inputs,
   ButonsRegister,
 } from '../styles/login/Loguinstyles';
+import { useEffect } from 'react';
 
 export default function RegisterUser() {
   const [hiddenOn, setHiddenOn] = useState(true);
   const [redirectOn, setRedirectOn] = useState(false);
+  const [transition, setTransition] = useState('0px');
   const [newUser, setNewUser] = useState({
     name: '',
     email: '',
@@ -43,9 +45,13 @@ export default function RegisterUser() {
     }
   };
 
+  useEffect(() => {
+    setTransition('500px');
+  })
+
   return (
     <LoguinDiv>
-      <InputsDiv>
+      <InputsDiv transition={transition}>
        <LogoDoApp/>
         { redirectOn ? <Redirect to="/customer/products" /> : null }
         <div>

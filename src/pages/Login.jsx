@@ -16,12 +16,14 @@ import {
 export default function Login() {
   const [hiddenOn, setHiddenOn] = useState(true);
   const [connectionOn, setConnectionOn] = useState();
+  const [transition, setTransition] = useState('0px');
   const [login, setLogin] = useState({
     email: '',
     password: '',
   });
 
   useEffect(() => {
+    setTransition('500px');
     const user = JSON.parse(localStorage.getItem('user'));
     if (user !== undefined) {
       setConnectionOn(user);
@@ -60,7 +62,7 @@ export default function Login() {
 
   return (
       <LoguinDiv>
-        <InputsDiv>
+        <InputsDiv transition={transition}>
           <LogoDoApp/>
           { connectionOn && <Redirect to={ setRedirectPath(connectionOn.role) } /> }
           <div>

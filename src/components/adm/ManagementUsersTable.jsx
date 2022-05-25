@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ManagementUsersTableBody from './ManagementUsersTableBody';
+import { TableDivAdm } from '../../styles/admStyles/admStyles';
+
+
 
 export default function ManagementUsersTable({ users, deleteUser }) {
   return (
-    <table>
+    <TableDivAdm>
       <thead>
         <tr>
           <th>Item</th>
@@ -26,7 +29,7 @@ export default function ManagementUsersTable({ users, deleteUser }) {
           ))
         }
       </tbody>
-    </table>
+    </TableDivAdm>
   );
 }
 
