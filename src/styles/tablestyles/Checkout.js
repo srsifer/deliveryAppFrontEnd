@@ -78,6 +78,19 @@ background-color: ${props => props.theme.colors.secundary}
     border-radius: 10px;
     height:50px;
     width: 200px;
+    :disabled {
+        :hover {
+            transform: scale(1.0);
+        }
+        background-color: #B0C4DE;
+        color:white;
+    }
+    :hover {
+      transform: scale(1.1);
+      transition-duration: 500ms;
+      box-shadow: 5px 5px 5px ${props => props.theme.colors.primary};
+      cursor: pointer;
+    }
   }
 `;
 

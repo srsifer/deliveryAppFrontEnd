@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import logout from '../../images/logout.png'
+
+import { shade } from 'polished'
 export const NavbarDiv = styled.div`
   color: ${props => props.theme.colors.secundary};
   top: 0 !important;
@@ -94,9 +95,30 @@ export const NavBarCheckout = styled(NavBarProducs)`
   button {
     border: none;
     color: ${props => props.theme.font.color.secundary};
-    background-image: url(${logout});
-    background-repeat: no-repeat;
-    background-size: 50px;
+    background-color:${props => props.theme.colors.secundary};
+    :hover {
+      @keyframes shake {
+        10%, 90% {
+          transform: translate3d(-1px, 0, 0);
+        }
+        
+        20%, 80% {
+          transform: translate3d(2px, 0, 0);
+        }
+
+        30%, 50%, 70% {
+          transform: translate3d(-4px, 0, 0);
+        }
+
+        40%, 60% {
+          transform: translate3d(4px, 0, 0);
+        }
+      }
+      animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+      transform: translate3d(0, 0, 0);
+      transition-duration: 500ms;
+      cursor: pointer;
+    }
   }
   @media (max-width: 600px){
   /* mobile screen */

@@ -25,7 +25,14 @@ export const DivCard = styled.div`
       color: ${props => props.theme.font.color.otherColor};
       margin: 10px;
     }
-  @media (max-width: 600px){
+
+    :hover {
+      transform: scale(1.1);
+      transition-duration: 500ms;
+      box-shadow: 15px 15px 15px ${props => props.theme.colors.shadows};
+    }
+    
+    @media (max-width: 600px){
   /* mobile screen */
   width: 150px;
   height: 200px;

@@ -53,4 +53,10 @@ export const ButtonTableRemoveItem = styled.button`
  height: 100%;
  border-style: none;
  font-size: x-large;
+ :hover {
+      transform: scale(1.1);
+      transition-duration: 500ms;
+      box-shadow: 5px 5px 5px red;
+      cursor: pointer;
+    }
 `;

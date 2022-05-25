@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Redirect, Link } from 'react-router-dom';
 import { changeSubtotalList } from '../redux/slice/productCart';
 import { navbarConfig } from '../styles/themes/NavbarConfig';
+import { logout } from '../images/logout';
 import { shade } from 'polished'
 import Switch from 'react-switch'
 import {
@@ -127,7 +128,7 @@ export default function Navbar({ menu }) {
           onClick={() => clearAndRedirect()}
           data-testid="customer_products__element-navbar-link-logout"
         >
-          sair
+          {logout}
         </button>
       </NavBarCheckout>
     </NavbarDiv>

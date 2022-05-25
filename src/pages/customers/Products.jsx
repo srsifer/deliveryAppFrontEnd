@@ -1,12 +1,12 @@
-import React, { useState }from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import NavBar from '../../components/Navbar';
-import {MenuP} from '../../styles/navBarStyles/NavBarStyles'
+import { MenuP } from '../../styles/navBarStyles/NavBarStyles'
 import ProductList from '../../components/customers/ProductList';
-import menu from  '../../images/menuIcon'
+import menu from '../../images/menuIcon'
 import {
-  StyleDivTotalPrice, 
+  StyleDivTotalPrice,
   TotalButton,
 } from '../../styles/productSytyle/ProductStyle';
 import Footer from '../../components/customers/Footer';
@@ -20,32 +20,33 @@ export default function Products() {
   }
   return (
     <>
-      <NavBar menu={show}/>
-      <input 
-      type="checkbox" 
-      id="check"
-      hidden
+      <NavBar menu={show} />
+      <input
+        type="checkbox"
+        id="check"
+        hidden
       />
       <MenuP htmlFor="check"
         onClick={toggleMenu}
       >{menu}</MenuP>
       <ProductList />
-      <StyleDivTotalPrice>
-        <h2>ver carrinho: R$</h2>
-        <Link
-          to="/customer/checkout"
-          data-testid="customer_products__checkout-bottom-value"
-        >
+      <Link
+        to="/customer/checkout"
+        data-testid="customer_products__checkout-bottom-value"
+      >
+        <StyleDivTotalPrice>
+          <h2>ver carrinho: R$</h2>
+
           <TotalButton
             type="button"
-            disabled={ totalPrice === '0,00' }
-            onClick={ () => localStorage.setItem('total', JSON.stringify(totalPrice)) }
+            disabled={totalPrice === '0,00'}
+            onClick={() => localStorage.setItem('total', JSON.stringify(totalPrice))}
             data-testid="customer_products__button-cart"
           >
-            { totalPrice }
+            {totalPrice}
           </TotalButton>
-        </Link>
-      </StyleDivTotalPrice>
+        </StyleDivTotalPrice>
+      </Link>
       <Footer />
     </>
   );
