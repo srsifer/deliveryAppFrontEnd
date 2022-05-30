@@ -9,8 +9,10 @@ import {
   DivButonsLoguin,
   Inputs,
   ButonsRegister,
+  ToLoginPageButton,
 } from '../styles/login/Loguinstyles';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function RegisterUser() {
   const [hiddenOn, setHiddenOn] = useState(true);
@@ -95,6 +97,14 @@ export default function RegisterUser() {
           >
             Criar Conta
           </ButonsRegister>
+          <Link to="/">
+            <ToLoginPageButton
+              type="button"
+              data-testid="common_login__button-register"
+              >
+                Já tenho conta
+            </ToLoginPageButton>
+          </Link>
         </DivButonsLoguin>
       </InputsDiv>
     </LoguinDiv>

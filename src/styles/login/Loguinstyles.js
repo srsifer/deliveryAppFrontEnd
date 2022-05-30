@@ -86,12 +86,6 @@ export const Inputs = styled.input`
   }
 `;
 
-export const DivButonsLoguin = styled.div`
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
 export const LogoDoApp = styled.div`
   width: 95%;
   height: 300px;
@@ -104,8 +98,16 @@ export const LogoDoApp = styled.div`
   @media (max-width: 600px){
     /* mobile screen */
     bot:80%;
-    }
+  }
 `;
+
+export const DivButonsLoguin = styled.div`
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
 export const ButonsSend = styled.button`
   border-style: none;
   width: 50%;
@@ -114,11 +116,21 @@ export const ButonsSend = styled.button`
   font-size: 30px;
   color: ${props => props.theme.font.color.secundary};
   margin:15px;
-  background-color:  rgba(246,148,60, 0.75);
+  background-color: rgba(246,148,60, 0.75);
+  :disabled {
+    opacity: 0.7;
+    :hover {
+      background-color: rgba(246,148,60, 0.75);
+      color: ${props => props.theme.font.color.secundary};
+      border: none;
+      cursor: default;
+    }
+  }
   :hover {
     background-color: ${props => props.theme.font.color.secundary};
     color: ${props => props.theme.font.color.primary};
     border: 2px solid ${props => props.theme.font.color.primary};
+    cursor: pointer;
   }
   @media (max-width: 600px){
     /* mobile screen */
@@ -128,4 +140,9 @@ export const ButonsSend = styled.button`
 
 export const ButonsRegister = styled(ButonsSend)`
   width: 100%;
+`;
+
+export const ToLoginPageButton = styled(ButonsSend)`
+  width: 100%;
+  margin: 0;
 `;

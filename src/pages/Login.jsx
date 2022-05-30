@@ -98,7 +98,7 @@ export default function Login() {
             </ButonsSend>
             <Link to="/register">
               <ButonsRegister
-                type="submit"
+                type="button"
                 data-testid="common_login__button-register"
               >
                 Ainda não tenho conta
