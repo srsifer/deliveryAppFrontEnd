@@ -2,44 +2,45 @@ import styled from 'styled-components';
 
 
 export const MainDashboarDiv = styled.div`
-margin-top: 15%;
-display: flex;
-flex-direction: row;
-margin-left: auto;
-margin-right: auto;
-width: 100%;
-justify-content: space-evenly;
-align-items: center;
+  align-content: center;
+  align-items: center;
+  margin-top: 10%;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  justify-content: space-evenly;
 `;
 
 export const DashboardAdm = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 20%;
-    height: max-content;
-    box-shadow: 0 0 1em ${props => props.theme.colors.shadows};
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  height: max-content;
+  box-shadow: 0 0 1em ${props => props.theme.colors.shadows};
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 10px;
 
-   select {
-    margin: 10px;
-    height: 46px;
-    font-size: larger;
-    font-weight: bold;
-    text-align: center;
-    width: 90%;
-    :disabled {
-            :hover {
-                transform: scale(1.0);
-            }
-            background-color: #B0C4DE;
-            color:white;
-        }
+  select {
     border-radius: 5px;
     background-color: ${props => props.theme.colors.secundary};
     color: ${props => props.theme.font.color.secundary};
+    height: 46px;
+    font-size: larger;
+    font-weight: bold;
+    margin: 10px;
+    text-align: center;
+    width: 90%;
+    :disabled {
+      background-color: #B0C4DE;
+      color:white;
+      :hover {
+          transform: scale(1.0);
+      }
+    }
     :hover {
         transform: scale(1.0)
     }
@@ -68,13 +69,14 @@ export const DashboardAdm = styled.div`
     border-radius: 10px;
     height:50px;
     width: 90%;
-
     :disabled {
-        :hover {
-            transform: scale(1.0);
-        }
-        background-color: #B0C4DE;
-        color:white;
+      background-color: #B0C4DE;
+      color:white;
+      :hover {
+          transform: scale(1.0);
+          box-shadow: none;
+          cursor: default;
+      }
     }
     :hover {
       transform: scale(1.1);
@@ -86,19 +88,19 @@ export const DashboardAdm = styled.div`
 `;
 
 export const TableDivAdm = styled.table`
-height:200px;
-width: 65%;
-box-shadow: 0 0 1em ${props => props.theme.colors.shadows};
-border-radius: 10px;
-padding: 10px;
-  tr {
-    text-align: center;
-    height: 50px;
-    border-style: none;
-    font-size: 25px;
-  }
+  height:200px;
+  width: 65%;
+  box-shadow: 0 0 1em ${props => props.theme.colors.shadows};
+  border-radius: 10px;
+  padding: 10px;
+    tr {
+      text-align: center;
+      height: 50px;
+      border-style: none;
+      font-size: 25px;
+    }
 
-  th {
-    color: ${props => props.theme.font.color.primary};
-  }
+    th {
+      color: ${props => props.theme.font.color.primary};
+    }
 `;

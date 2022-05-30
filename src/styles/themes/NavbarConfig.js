@@ -1,22 +1,22 @@
 export const navbarConfig = {
     costumer : {
         products: {
-            width: '20%',
+            width: '47%',
         },
         
         orders: {
-            width: '50%',
+            width: '47%',
         },
     },
 
     saller: {
         orders: {
-            width: '70%',
+            width: '75%',
         },
 
     },
 
     manager: {
-        orders: {},
+        orders: '57%',
     }
 };
