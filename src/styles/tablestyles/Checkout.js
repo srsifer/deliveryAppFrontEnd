@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
 export const DivBodyCheckout = styled.div`
-background-color: ${props => props.theme.colors.background};
+  background-color: ${props => props.theme.colors.background};
 `;
 
 export const MainChekoutDiv = styled.div`
-display: flex;
-flex-direction: column;
-margin-left: auto;
-margin-right: auto;
-width:80%;
-height:800px;
-justify-content: space-around;
-align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  width:80%;
+  height:800px;
+  justify-content: space-around;
+  align-items: stretch;
 `;
 
 export const TotalDiv = styled.div`
@@ -31,26 +31,25 @@ export const TotalDiv = styled.div`
 `;
 
 export const AddressDiv = styled.div`
-box-shadow: 0 0 2em ${props => props.theme.colors.shadows};
-border-radius: 10px;
-padding:10px;
-color: ${props => props.theme.font.color.primary};
-background-color: ${props => props.theme.colors.secundary}
+  box-shadow: 0 0 2em ${props => props.theme.colors.shadows};
+  border-radius: 10px;
+  padding:10px;
+  color: ${props => props.theme.font.color.primary};
+  background-color: ${props => props.theme.colors.secundary}
 
   p {
     font-size: 20px;
     font-weight: 800;
-    
   }
 
   select {
-   height: 46px;
-   font-size: larger;
-   font-weight: bold;
-   text-align: center;
-   border-radius: 5px;
-   background-color: ${props => props.theme.colors.secundary};
-   color: ${props => props.theme.font.color.secundary};
+    height: 46px;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    background-color: ${props => props.theme.colors.secundary};
+    color: ${props => props.theme.font.color.secundary};
       :hover {
         transform: scale(1.0)
       }
@@ -83,11 +82,13 @@ background-color: ${props => props.theme.colors.secundary}
     height:50px;
     width: 200px;
     :disabled {
-        :hover {
-            transform: scale(1.0);
-        }
-        background-color: #B0C4DE;
-        color:white;
+      background-color: #B0C4DE;
+      color:white;
+      :hover {
+        transform: scale(1.0);
+        box-shadow: none;
+        cursor: default;
+      }
     }
     :hover {
       transform: scale(1.1);

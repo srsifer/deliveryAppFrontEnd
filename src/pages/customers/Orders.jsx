@@ -57,7 +57,7 @@ export default function Orders() {
                     {order.saleDate}
                   </p>
                   <p data-testid={`customer_orders__element-card-price-${order.id}`}>
-                   Total R${order.totalPrice.replace('.', ',')}
+                   Total: R$ {order.totalPrice.replace('.', ',')}
                   </p>
                 </OrderDateAndPrice>
               </OrderDiv>

@@ -49,17 +49,17 @@ export default function OrderDetails() {
           <p
             data-testid={`${datId}-details-label-order-id`}
           >
-            {order.id}
+            Id: {order.id}
           </p>
           <p
             data-testid={`${datId}-details-label-order-date`}
           >
-            {order.saleDate}
+            Data: {order.saleDate}
           </p>
           <p
             data-testid={`${datId}-details-label-delivery-status`}
           >
-            {order.status}
+            Status: {order.status}
           </p>
           <PrepareOrderButton
             type="button"
