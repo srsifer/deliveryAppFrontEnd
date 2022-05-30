@@ -6,10 +6,8 @@ import { MenuP } from '../../styles/navBarStyles/NavBarStyles'
 import ProductList from '../../components/customers/ProductList';
 import menu from '../../images/menuIcon'
 import {
-  StyleDivTotalPrice,
   TotalButton,
 } from '../../styles/productSytyle/ProductStyle';
-import Footer from '../../components/customers/Footer';
 import cart from '../../images/cart';
 
 export default function Products() {

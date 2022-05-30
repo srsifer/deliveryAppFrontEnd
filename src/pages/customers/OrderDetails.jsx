@@ -56,22 +56,22 @@ export default function OrderDetails() {
             <p
               data-testid={`${datId}-details-label-order-id`}
             >
-              {`Numero ${order.id}`}
+              Id: {order.id}
             </p>
             <p
               data-testid={`${datId}-details-label-seller-name`}
             >
-              {` Vendedor(a) ${sellerName}`}
+              Vendedor(a): {sellerName}
             </p>
             <p
               data-testid={`${datId}-details-label-order-date`}
             >
-              {` Data ${order.saleDate}`}
+              Data: {order.saleDate}
             </p>
             <p
               data-testid={`${datId}-details-label-delivery-status`}
             >
-              {` Status  ${order.status}`}
+              Status: {order.status}
             </p>
             <MarkSenddButton
               type="button"

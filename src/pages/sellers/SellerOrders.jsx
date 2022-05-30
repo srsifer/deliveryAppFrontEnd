@@ -51,14 +51,14 @@ export default function SellerOrders() {
                   { order.saleDate }
                 </p>
                 <p data-testid={ `seller_orders__element-card-price-${order.id}` }>
-                  { order.totalPrice.replace('.', ',') }
+                  Total: R$ { order.totalPrice.replace('.', ',') }
                 </p>
               </OrderDateAndPrice>
-            <DivAdressCardOrder>
-              <p data-testid={ `seller_orders__element-card-address-${order.id}` }>
-                { `${order.deliveryAddress}, ${order.deliveryNumber}` }
-              </p>
-            </DivAdressCardOrder>
+              <DivAdressCardOrder>
+                <p data-testid={ `seller_orders__element-card-address-${order.id}` }>
+                  {order.deliveryAddress}, {order.deliveryNumber}
+                </p>
+              </DivAdressCardOrder>
             </OrderDiv>
           </Link>
         ))
