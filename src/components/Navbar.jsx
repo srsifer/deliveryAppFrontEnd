@@ -6,15 +6,16 @@ import { navbarConfig } from '../styles/themes/NavbarConfig';
 import { logout } from '../images/logout';
 import { shade } from 'polished'
 import Switch from 'react-switch'
+import themes from '../styles/themes/light';
+import { changeTheme } from '../redux/slice/themeSelect';
 import {
   NavbarDiv,
   NavBarProducs,
   NavBarOrders,
   NavBarProfile,
   NavBarCheckout,
+  ChangeTheme,
 } from '../styles/navBarStyles/NavBarStyles';
-import themes from '../styles/themes/light';
-import { changeTheme } from '../redux/slice/themeSelect';
 
 export default function Navbar({ menu }) {
   const dispatch = useDispatch();
@@ -30,7 +31,6 @@ export default function Navbar({ menu }) {
   const [redirectOn, setRedirectOn] = useState(false);
   const [userName, setUserName] = useState();
   const { pathname } = useHistory().location;
-
 
   useEffect(() => {
     const { name } = JSON.parse(localStorage.getItem('user'));
@@ -48,40 +48,40 @@ export default function Navbar({ menu }) {
   };
 
   const renderAdmin = (
-    <NavBarOrders config={navbarConfig.saller.orders}>
+    <NavBarOrders config={navbarConfig.saller.orders} pathname={pathname}>
       <div data-testid="customer_products__element-navbar-link-orders">
-        <h3>Gerenciar Usuários</h3>
+        <h2>Gerenciar Usuários</h2>
       </div>
     </NavBarOrders>
   );
 
   const renderSeller = (
-    <NavBarOrders config={navbarConfig.saller.orders}>
+    <NavBarOrders config={navbarConfig.saller.orders} pathname={pathname}>
       <Link
         to="/seller/orders"
         data-testid="customer_products__element-navbar-link-orders"
       >
-        <h3>Pedidos</h3>
+        <h2>Pedidos</h2>
       </Link>
     </NavBarOrders>
   );
 
   const renderCustomer = (
     <>
-      <NavBarProducs >
+      <NavBarProducs>
         <Link
           to="/customer/products"
           data-testid="customer_products__element-navbar-link-products"
         >
-          <h3>Produtos</h3>
+          <h2>Produtos</h2>
         </Link>
       </NavBarProducs>
-      <NavBarOrders config={navbarConfig.costumer.orders}>
+      <NavBarOrders config={navbarConfig.costumer.orders} pathname={pathname}>
         <Link
           to="/customer/orders"
           data-testid="customer_products__element-navbar-link-orders"
         >
-          <h3>Meus Pedidos</h3>
+          <h2>Meus Pedidos</h2>
         </Link>
       </NavBarOrders>
     </>);
@@ -108,32 +108,40 @@ export default function Navbar({ menu }) {
     <NavbarDiv menu={menu}>
 
       {redirectOn ? <Redirect to="/login" /> : null}
-      {renderByRole()}
 
-      <NavBarProfile>
-        <h3 data-testid="customer_products__element-navbar-user-full-name">
-          {userName}
-        </h3>
+      <ChangeTheme pathname={pathname}>
+        <label htmlFor="change-theme">Alterar Tema</label>
         <Switch
+          id="change-theme"
           onChange={toggleTheme}
           checked={darkModeON}
           checkedIcon={false}
           uncheckedHandleIcon={false}
           height={15}
-
           handleDiameter={20}
           onColor={themes.colors.secundary}
           offColor={shade(0.15, themes.colors.primary)}
         />
+      </ChangeTheme>
+      {renderByRole()}
+      <NavBarProfile>
+        <div>
+          <h4>Usuário:</h4>
+          <h4 data-testid="customer_products__element-navbar-user-full-name">
+            {userName}
+          </h4>
+        </div>
       </NavBarProfile>
       <NavBarCheckout>
         <button
+          id="checkout-button"
           type="button"
           onClick={() => clearAndRedirect()}
           data-testid="customer_products__element-navbar-link-logout"
         >
           {logout}
         </button>
+        <label htmlFor="checkout-button">Sair</label>
       </NavBarCheckout>
     </NavbarDiv>
   );
