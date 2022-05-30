@@ -57,36 +57,39 @@ export default function RegisterUser() {
        <LogoDoApp/>
         { redirectOn ? <Redirect to="/customer/products" /> : null }
         <div>
-        <Inputs
-          name="name"
-          type="name"
-          value={ newUser.name }
-          onChange={ handleChange }
-          placeholder="Insira um nome"
-          data-testid="common_register__input-name"
-        />
-        <Inputs
-          name="email"
-          type="text"
-          value={ newUser.email }
-          onChange={ handleChange }
-          placeholder="Insira um e-email"
-          data-testid="common_register__input-email"
-        />
-        <Inputs
-          name="password"
-          type="password"
-          value={ newUser.password }
-          onChange={ handleChange }
-          placeholder="Insira uma senha"
-          data-testid="common_register__input-password"
-        />
-        <p
-          hidden={ hiddenOn }
-          data-testid="common_register__element-invalid_register"
-        >
-          invalid credential
-        </p>
+          <h2>Nome e sobrenome</h2>
+          <Inputs
+            name="name"
+            type="name"
+            value={ newUser.name }
+            onChange={ handleChange }
+            placeholder="Ao menos 12 caracteres"
+            data-testid="common_register__input-name"
+          />
+          <h2>Email</h2>
+          <Inputs
+            name="email"
+            type="text"
+            value={ newUser.email }
+            onChange={ handleChange }
+            placeholder="Insira um email válido"
+            data-testid="common_register__input-email"
+          />
+          <h2>Senha</h2>
+          <Inputs
+            name="password"
+            type="password"
+            value={ newUser.password }
+            onChange={ handleChange }
+            placeholder="Ao menos 6 caracteres"
+            data-testid="common_register__input-password"
+          />
+          <p
+            hidden={ hiddenOn }
+            data-testid="common_register__element-invalid_register"
+          >
+            Email já cadastrado.
+          </p>
         </div>
         <DivButonsLoguin>
           <ButonsRegister

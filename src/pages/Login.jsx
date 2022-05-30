@@ -84,7 +84,7 @@ export default function Login() {
             hidden={ hiddenOn }
             data-testid="common_login__element-invalid-email"
             >
-              invalid credential
+              Email ou senha inválido.
             </p>
           </div>
           <DivButonsLoguin>

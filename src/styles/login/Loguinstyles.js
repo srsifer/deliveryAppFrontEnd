@@ -37,15 +37,29 @@ export const InputsDiv = styled.div`
   width: 500px;
   height: 100%;
   position: absolute;
-  
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-    p {
-      color: red;
-    }
+  div {
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+  h2 {
+    color: white;
+    margin: 10px 0 0 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 16px;
+    color: red;
+    font-weight: bold;
+  }
 }
 
 @media (max-width: 600px){
