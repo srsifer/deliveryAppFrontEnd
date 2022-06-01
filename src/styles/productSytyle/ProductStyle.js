@@ -34,6 +34,11 @@ export const TotalButton = styled.button`
   border: 1px solid;
   color: ${props => props.theme.font.primary};
   text-decoration: none;
+  :hover {
+    opacity: 0.80;
+    transform: scale(1.05);
+    transition-duration: 300ms;
+  }
 `;
 
 
