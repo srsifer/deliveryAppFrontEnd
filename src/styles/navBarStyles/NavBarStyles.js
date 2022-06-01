@@ -46,7 +46,7 @@ export const MenuP = styled.label`
   }
 `;
 
-export const NavBarSegments = styled.div`
+const NavBarSegments = styled.div`
   align-items: center;
   display: flex;
   justify-content: center;
@@ -63,11 +63,25 @@ export const NavBarSegments = styled.div`
   }
 `;
 
+const selectedBar = (props) => {
+  return (
+    `opacity: 0.85;
+      box-shadow: 0px 10px 6px -2px ${props.theme.title === 'light' ? 'black' : 'white'};
+      transition-duration: 400ms;
+      h2 {
+        color: #FFD700;
+        text-shadow: -1px 0 black , 0 1px black , 1px 0 black , 0 -1px black;
+        font-weight: bold;
+      }`
+  )
+}
+
 export const NavBarProducs = styled(NavBarSegments)`
   background-color: ${props => props.theme.colors.primary};
   :hover {
-    opacity: 0.7;
+    ${selectedBar};
   }
+  ${props => props.pathname.includes('products') && selectedBar(props)};
 
   @media (max-width: 600px){
   /* mobile screen */
@@ -82,8 +96,9 @@ export const NavBarOrders = styled(NavBarSegments)`
   color: ${props => props.theme.font.color.secundary};
   width: ${props => props.config.width};
   ${props => props.pathname.includes('admin')
-    ? ":hover { opacity: 1 })"
-    : ":hover { opacity: 0.7 })"};
+    ? ":hover { opacity: 1 }"
+    : `:hover { ${selectedBar(props)} }`};
+  ${props => props.pathname.match(/orders$/) && selectedBar(props)};
 
   @media (max-width: 600px){
   /* mobile screen */
