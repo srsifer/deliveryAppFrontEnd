@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import ManagementUsersTableBody from './ManagementUsersTableBody';
 import { TableDivAdm } from '../../styles/admStyles/admStyles';
 
+export default function ManagementUsersTable(props) {
+  const { users, deleteUser } = props;
 
-
-export default function ManagementUsersTable({ users, deleteUser }) {
   return (
     <TableDivAdm>
       <thead>

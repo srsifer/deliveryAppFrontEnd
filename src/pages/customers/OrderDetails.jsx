@@ -4,12 +4,12 @@ import OrderDetailsTable from '../../components/customers/OrderDetailsTable';
 import Navbar from '../../components/Navbar';
 import socket from '../../utils/socketClient';
 import { getOrderById } from '../../services/apiCalls';
-import { TotalDiv } from '../../styles/tablestyles/Checkout'
+import { TotalDiv } from '../../styles/tablestyles/Checkout';
 import {
   DetailsOrderDiv,
   InfoOrderDeshboard,
   MarkSenddButton,
-} from '../../styles/orderDetails/OrderDetailsPageStyles'
+} from '../../styles/orderDetails/OrderDetailsPageStyles';
 
 export default function OrderDetails() {
   const [order, setOrder] = useState([]);
@@ -48,49 +48,47 @@ export default function OrderDetails() {
     <>
       <Navbar />
       <DetailsOrderDiv>
-        <div>
-          <h2>
-            Detalhes do pedido
-          </h2>
-          <InfoOrderDeshboard>
-            <p
-              data-testid={`${datId}-details-label-order-id`}
-            >
-              Id: {order.id}
-            </p>
-            <p
-              data-testid={`${datId}-details-label-seller-name`}
-            >
-              Vendedor(a): {sellerName}
-            </p>
-            <p
-              data-testid={`${datId}-details-label-order-date`}
-            >
-              Data: {order.saleDate}
-            </p>
-            <p
-              data-testid={`${datId}-details-label-delivery-status`}
-            >
-              Status: {order.status}
-            </p>
-            <MarkSenddButton
-              type="button"
-              value="Entregue"
-              disabled={order.status !== 'Em Trânsito'}
-              onClick={(e) => changeStatus(e)}
-              data-testid="customer_order_details__button-delivery-check"
-            >
-              Marcar como entregue
-            </MarkSenddButton>
-          </InfoOrderDeshboard>
-          <OrderDetailsTable products={products} datId={datId} />
-          <TotalDiv data-testid="customer_order_details__element-order-total-price">
-            {
-              `Total: ${Number(order.totalPrice)
-                .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`
-            }
-          </TotalDiv>
-        </div>
+        <h2>
+          Detalhes do pedido
+        </h2>
+        <InfoOrderDeshboard>
+          <p
+            data-testid={`${datId}-details-label-order-id`}
+          >
+            Id: {order.id}
+          </p>
+          <p
+            data-testid={`${datId}-details-label-seller-name`}
+          >
+            Vendedor(a): {sellerName}
+          </p>
+          <p
+            data-testid={`${datId}-details-label-order-date`}
+          >
+            Data: {order.saleDate}
+          </p>
+          <p
+            data-testid={`${datId}-details-label-delivery-status`}
+          >
+            Status: {order.status}
+          </p>
+          <MarkSenddButton
+            type="button"
+            value="Entregue"
+            disabled={order.status !== 'Em Trânsito'}
+            onClick={(e) => changeStatus(e)}
+            data-testid="customer_order_details__button-delivery-check"
+          >
+            Marcar como entregue
+          </MarkSenddButton>
+        </InfoOrderDeshboard>
+        <OrderDetailsTable products={products} datId={datId} />
+        <TotalDiv data-testid="customer_order_details__element-order-total-price">
+          {
+            `Total: ${Number(order.totalPrice)
+              .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`
+          }
+        </TotalDiv>
       </DetailsOrderDiv>
     </>
   );

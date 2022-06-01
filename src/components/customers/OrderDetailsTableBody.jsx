@@ -6,10 +6,10 @@ import {
   TdQuantity,
   TdUnitPrice,
   TdTotalPrice,
-} from '../../styles/tablestyles/tableSltyles'
+} from '../../styles/tablestyles/tableSltyles';
 
-export default function
-OrderDetailsTableBody({ product, index, datId }) {
+export default function OrderDetailsTableBody(props) {
+  const { product, index, datId } = props;
   const { name, salesProducts: { quantity }, price } = product;
 
   return (
@@ -32,19 +32,19 @@ OrderDetailsTableBody({ product, index, datId }) {
       <TdUnitPrice
         data-testid={ `${datId}-table-unit-price-${index}` }
       >
-        {price.replace('.', ',')}
+        R$ {price.replace('.', ',')}
       </TdUnitPrice>
       <TdTotalPrice
         data-testid={ `${datId}-table-sub-total-${index}` }
       >
-        {(Number(price) * (quantity)).toFixed(2) }
+        R$ {(Number(price) * (quantity)).toFixed(2).replace('.', ',')}
       </TdTotalPrice>
     </tr>
   );
 }
 
 OrderDetailsTableBody.propTypes = ({
-  products: PropTypes.arrayOf(PropTypes.object),
+  product: PropTypes.object,
   index: PropTypes.number,
   datId: PropTypes.string,
 }).isRequired;

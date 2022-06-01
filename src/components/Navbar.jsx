@@ -68,7 +68,7 @@ export default function Navbar({ menu }) {
 
   const renderCustomer = (
     <>
-      <NavBarProducs>
+      <NavBarProducs pathname={pathname}>
         <Link
           to="/customer/products"
           data-testid="customer_products__element-navbar-link-products"

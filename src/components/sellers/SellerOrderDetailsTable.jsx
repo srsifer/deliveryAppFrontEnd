@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import SellerOrderDetailsTableBody from './SellerOrderDetailsTableBody';
 import { TableDiv } from '../../styles/tablestyles/tableSltyles';
 
-export default function SellerOrderDetailsTable({ products, datId }) {
+export default function SellerOrderDetailsTable(props) {
+  const { products, datId } = props;
+
   return (
     <TableDiv>
       <thead>
@@ -11,7 +13,7 @@ export default function SellerOrderDetailsTable({ products, datId }) {
           <th>Item</th>
           <th>Descrição</th>
           <th>Quantidade</th>
-          <th>valor Unitarío</th>
+          <th>Valor unitário</th>
           <th>Sub-total</th>
         </tr>
       </thead>

@@ -8,7 +8,7 @@ import {
   MainChekoutDiv,
   TotalDiv,
   AddressDiv,
-} from '../../styles/tablestyles/Checkout'
+} from '../../styles/tablestyles/Checkout';
 
 import { createOrder, getSellers } from '../../services/apiCalls';
 import { changeSubtotalList } from '../../redux/slice/productCart';
@@ -70,7 +70,7 @@ export default function Checkout() {
       { redirect ? <Redirect to={ `/customer/orders/${orderId}` } /> : null }
       <NavBar />
       <MainChekoutDiv>
-        <h2>Finalizar pedido</h2>
+        <legend>Finalizar pedido</legend>
         <CheckoutTable productsSold={ productsSold }/>
           <TotalDiv
             data-testid="customer_checkout__element-order-total-price"
@@ -78,44 +78,55 @@ export default function Checkout() {
            { `Total: R$ ${totalPrice.toFixed(2).toString().replace('.', ',')}`}
           </TotalDiv>
         <AddressDiv>
-          <h2>Detalhes e Endereço para Entrega</h2>
-          <select
-            name="select-seller"
-            onChange={ (e) => handleChange(e.target) }
-            disabled={productsSold.length === 0}
-            data-testid="customer_checkout__select-seller"
-          >
-            {
-              sellers.map(({ id, name }, index) => (
-                <option key={ index } value={ id }>
-                  {name}
-                </option>))
-            }
-          </select>
-          <input
-            name="customer-address"
-            type="text"
-            value={ order.deliveryAddress }
-            onChange={ (e) => handleChange(e.target) }
-            disabled={productsSold.length === 0}
-            data-testid="customer_checkout__input-address"
-          />
-          <input
-            name="customer-address-number"
-            type="number"
-            value={ order.deliveryNumber }
-            onChange={ (e) => handleChange(e.target) }
-            disabled={productsSold.length === 0}
-            data-testid="customer_checkout__input-addressNumber"
-            />
-          <button
-            type="button"
-            onClick={ () => sendOrder() }
-            disabled={Object.values(order).some((value) => !value) || productsSold.length === 0}
-            data-testid="customer_checkout__button-submit-order"
-            >
-            finalizar pedido
-          </button>
+          <h2>Detalhes para entrega</h2>
+          <div>
+            <div>
+              <p>Vendedor(a)</p>
+              <select
+                name="select-seller"
+                onChange={ (e) => handleChange(e.target) }
+                disabled={productsSold.length === 0}
+                data-testid="customer_checkout__select-seller"
+              >
+                {
+                  sellers.map(({ id, name }, index) => (
+                    <option key={ index } value={ id }>
+                      {name}
+                    </option>))
+                }
+              </select>
+            </div>
+            <div>
+              <p>Endereço</p>
+              <input
+                name="customer-address"
+                type="text"
+                value={ order.deliveryAddress }
+                onChange={ (e) => handleChange(e.target) }
+                disabled={productsSold.length === 0}
+                data-testid="customer_checkout__input-address"
+              />
+            </div>
+            <div>
+              <p>Número residencial</p>
+              <input
+                name="customer-address-number"
+                type="number"
+                value={ order.deliveryNumber }
+                onChange={ (e) => handleChange(e.target) }
+                disabled={productsSold.length === 0}
+                data-testid="customer_checkout__input-addressNumber"
+                />
+            </div>
+            <button
+              type="button"
+              onClick={ () => sendOrder() }
+              disabled={Object.values(order).some((value) => !value) || productsSold.length === 0}
+              data-testid="customer_checkout__button-submit-order"
+              >
+              finalizar
+            </button>
+          </div>
         </AddressDiv>
       </MainChekoutDiv>
     </DivBodyCheckout>
