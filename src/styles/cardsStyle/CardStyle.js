@@ -57,7 +57,7 @@ export const DivCardFooter = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  `;
+`;
 
 export const DivCardButons = styled.div`
   input {
@@ -75,6 +75,7 @@ export const DivCardButons = styled.div`
       -webkit-appearance: none;
       margin: 0;
     }
+  }
 `;
 
 export const ButtonAdd = styled.button`

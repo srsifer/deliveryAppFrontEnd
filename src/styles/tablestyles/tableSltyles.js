@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 
 export const TableDiv = styled.table`
-height:200px;
-box-shadow: 0 0 1em ${props => props.theme.colors.shadows};
-border-radius: 10px;
-padding: 10px;
-  tr {
-    text-align: center;
-    height: 50px;
-    border-style: none;
-    font-size: 25px;
-  }
+  height: auto;
+  box-shadow: 0 0 1em ${props => props.theme.colors.shadows};
+  border-radius: 10px;
+  padding: 10px;
+    tr {
+      text-align: center;
+      height: 50px;
+      border-style: none;
+      font-size: 25px;
+    }
 
-  th {
-    color: ${props => props.theme.font.color.primary};
-  }
+    th {
+      color: ${props => props.theme.font.color.primary};
+    }
 `;
 
 export const TdIten = styled.td`
@@ -47,13 +47,13 @@ export const TdRemoveItem = styled(TdIten)`
 `;
 
 export const ButtonTableRemoveItem = styled.button`
- background-color: red;
- color: ${props => props.theme.font.color.secundary};
- width: 100%;
- height: 100%;
- border-style: none;
- font-size: x-large;
- :hover {
+  background-color: red;
+  color: ${props => props.theme.font.color.secundary};
+  width: 100%;
+  height: 100%;
+  border-style: none;
+  font-size: x-large;
+  :hover {
       transform: scale(1.1);
       transition-duration: 500ms;
       box-shadow: 5px 5px 5px red;
