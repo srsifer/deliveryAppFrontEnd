@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import OrderDetailsTableBody from './OrderDetailsTableBody';
-import {TableDiv} from '../../styles/tablestyles/tableSltyles'
+import { TableDiv } from '../../styles/tablestyles/tableSltyles';
 
+export default function OrderDetailsTable(props) {
+  const { products, datId } = props;
 
-export default function OrderDetailsTable({ products, datId }) {
   return (
     <TableDiv>
       <thead>
@@ -12,7 +13,7 @@ export default function OrderDetailsTable({ products, datId }) {
           <th>Item</th>
           <th>Descrição</th>
           <th>Quantidade</th>
-          <th>valor Unitarío</th>
+          <th>Valor unitário</th>
           <th>Sub-total</th>
         </tr>
       </thead>

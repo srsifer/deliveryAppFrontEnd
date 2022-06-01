@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getProducts } from '../../services/apiCalls';
 import StyledList from '../../styles/productSytyle/productListStyle';
-import {StyleDivProduct} from '../../styles/productSytyle/ProductStyle'
+import {StyleDivProduct} from '../../styles/productSytyle/ProductStyle';
 import ProductCard from './ProductCard';
 
 export default function ProductList() {

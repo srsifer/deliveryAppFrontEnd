@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import {
   changeSubtotalList,
   createSubtotalList,
-  updateTotalPrice } from '../../redux/slice/productCart';
+  updateTotalPrice
+} from '../../redux/slice/productCart';
 import {
   DivCard,
   Price,
@@ -12,7 +13,7 @@ import {
   DivCardButons,
   ButtonAdd,
   ButtonRemove,
-} from '../../styles/cardsStyle/CardStyle'
+} from '../../styles/cardsStyle/CardStyle';
 
 export default function ProductCard(props) {
   const { allProducts, product: { id, name, price, url_image: urlImage } } = props;

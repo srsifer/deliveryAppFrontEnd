@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 import StatusOrder from '../../components/customers/StatusOrder';
 import Navbar from '../../components/Navbar';
 import { getOrdersByUser } from '../../services/apiCalls';
-import { DivAllOrders, IdDivOrder, OrderDateAndPrice, OrderDiv, DivAdressCardOrder } from '../../styles/ordersStyles/orderStyles';
+import {
+  DivAllOrders,
+  IdDivOrder,
+  OrderDateAndPrice,
+  OrderDiv,
+  DivAdressCardOrder
+} from '../../styles/ordersStyles/orderStyles';
 import socket from '../../utils/socketClient';
 
 export default function SellerOrders() {

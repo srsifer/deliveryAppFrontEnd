@@ -3,7 +3,12 @@ import { useParams } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import SellerOrderDetailsTable from '../../components/sellers/SellerOrderDetailsTable';
 import { getOrderById } from '../../services/apiCalls';
-import { DetailsOrderDiv, InfoOrderDeshboard, MarkSenddButton, PrepareOrderButton } from '../../styles/orderDetails/OrderDetailsPageStyles';
+import {
+  DetailsOrderDiv,
+  InfoOrderDeshboard,
+  MarkSenddButton,
+  PrepareOrderButton
+} from '../../styles/orderDetails/OrderDetailsPageStyles';
 import { TotalDiv } from '../../styles/tablestyles/Checkout';
 import socket from '../../utils/socketClient';
 

@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CheckoutTableBody from './CheckoutTableBody';
-import {TableDiv} from '../../styles/tablestyles/tableSltyles'
+import { TableDiv } from '../../styles/tablestyles/tableSltyles';
 
 export default function CheckoutTable(props) {
   const { productsSold } = props;
+
   return (
     <TableDiv>
       <thead>
@@ -12,7 +13,7 @@ export default function CheckoutTable(props) {
           <th>Item</th>
           <th>Descrição</th>
           <th>Quantidade</th>
-          <th>Valor unitarío</th>
+          <th>Valor unitário</th>
           <th>Sub-total</th>
           <th></th>
         </tr>
@@ -24,7 +25,8 @@ export default function CheckoutTable(props) {
               product={ product }
               key={ index }
               index={ index }
-            />))
+            />
+          ))
         }
       </tbody>
     </TableDiv>

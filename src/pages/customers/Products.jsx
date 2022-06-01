@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import NavBar from '../../components/Navbar';
-import { MenuP } from '../../styles/navBarStyles/NavBarStyles'
+import { MenuP } from '../../styles/navBarStyles/NavBarStyles';
 import ProductList from '../../components/customers/ProductList';
-import menu from '../../images/menuIcon'
-import {
-  TotalButton,
-} from '../../styles/productSytyle/ProductStyle';
+import menu from '../../images/menuIcon';
+import { TotalButton } from '../../styles/productSytyle/ProductStyle';
 import cart from '../../images/cart';
 
 export default function Products() {
   const totalPrice = useSelector(({ productCartReducer }) => (
     productCartReducer.totalPrice)).toFixed(2).toString().replace('.', ',');
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
+
   const toggleMenu = () => {
-    setShow(!show)
+    setShow(!show);
   }
+
   return (
     <>
       <NavBar menu={show} />

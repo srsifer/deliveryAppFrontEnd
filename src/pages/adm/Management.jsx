@@ -70,7 +70,7 @@ export default function Management() {
               data-testid="admin_manage__element-invalid-register"
               hidden={hiddenOn}
             >
-              Person already registered
+              Email já cadastrado.
             </p>
             <input
               name="name"
